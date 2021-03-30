@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HelloView {
 
-    public void helloWorld() {
-        System.out.println("Hello World!");
+    public void print(String text) {
+        System.out.println(text);
     }
 }
