@@ -3,4 +3,3 @@ include 'cookbook-app'
 include 'cookbook-domain'
 include 'cookbook-persistence'
 include 'cookbook-service'
-
