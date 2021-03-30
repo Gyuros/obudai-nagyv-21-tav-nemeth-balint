@@ -12,8 +12,8 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    implementation project(':cookbook-domain')
-    implementation project(':cookbook-persistence')
+    compile project(path: ':cookbook-domain', configuration: 'default')
+    compile project(path: ':cookbook-persistence', configuration: 'default')
 }
 
 test {
