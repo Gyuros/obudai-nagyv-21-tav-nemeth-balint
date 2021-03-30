@@ -1,4 +1,5 @@
 rootProject.name = 'cookbook'
 include 'cookbook-app'
 include 'cookbook-domain'
+include 'cookbook-persistence'
 
