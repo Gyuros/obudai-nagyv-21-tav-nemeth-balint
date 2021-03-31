@@ -1,5 +1,7 @@
 package cookbook.domain;
 
+import java.util.List;
+
 public class Recipe {
 
     private long id;
@@ -7,6 +9,7 @@ public class Recipe {
     private int servings;
     private String preparation;
     private Cook uploader;
+    private List<Category> categories;
 
     public Recipe(long id, String name, int servings, String preparation) {
         this.id = id;
@@ -33,5 +36,9 @@ public class Recipe {
 
     public Cook getUploader() {
         return uploader;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
     }
 }
