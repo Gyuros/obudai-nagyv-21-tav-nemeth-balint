@@ -2,8 +2,9 @@ package cookbook.service.auth;
 
 import cookbook.domain.Cook;
 import cookbook.domain.User;
+import cookbook.service.Initializable;
 
-public interface AuthService {
+public interface AuthService extends Initializable {
 
     void login(String username);
 
