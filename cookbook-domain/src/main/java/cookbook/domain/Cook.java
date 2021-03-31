@@ -5,6 +5,7 @@ import java.util.List;
 public class Cook extends User {
 
     private List<Recipe> ownRecipes;
+    private List<Comment> comments;
 
     public Cook(long id, String username, String password) {
         super(id, username, password);
@@ -12,5 +13,9 @@ public class Cook extends User {
 
     public List<Recipe> getOwnRecipes() {
         return ownRecipes;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
     }
 }

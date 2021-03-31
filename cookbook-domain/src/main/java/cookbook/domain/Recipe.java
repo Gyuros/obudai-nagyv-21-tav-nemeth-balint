@@ -11,6 +11,7 @@ public class Recipe {
     private Cook uploader;
     private List<Category> categories;
     private List<Ingredient> ingredients;
+    private List<Comment> comments;
 
     public Recipe(long id, String name, int servings, String preparation) {
         this.id = id;
@@ -45,5 +46,9 @@ public class Recipe {
 
     public List<Ingredient> getIngredients() {
         return ingredients;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
     }
 }
