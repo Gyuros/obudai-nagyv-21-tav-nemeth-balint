@@ -10,6 +10,7 @@ public class Recipe {
     private String preparation;
     private Cook uploader;
     private List<Category> categories;
+    private List<Ingredient> ingredients;
 
     public Recipe(long id, String name, int servings, String preparation) {
         this.id = id;
@@ -40,5 +41,9 @@ public class Recipe {
 
     public List<Category> getCategories() {
         return categories;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
     }
 }
