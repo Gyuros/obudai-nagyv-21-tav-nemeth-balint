@@ -8,12 +8,14 @@ public class Comment {
     private String description;
     private LocalDateTime timestamp;
     private Cook owner;
+    private Recipe recipe;
 
-    public Comment(long id, String description, LocalDateTime timestamp, Cook owner) {
+    public Comment(long id, String description, LocalDateTime timestamp, Cook owner, Recipe recipe) {
         this.id = id;
         this.description = description;
         this.timestamp = timestamp;
         this.owner = owner;
+        this.recipe = recipe;
     }
 
     public long getId() {

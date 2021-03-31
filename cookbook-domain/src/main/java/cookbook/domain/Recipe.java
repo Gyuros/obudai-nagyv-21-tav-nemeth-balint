@@ -13,11 +13,14 @@ public class Recipe {
     private List<Ingredient> ingredients;
     private List<Comment> comments;
 
-    public Recipe(long id, String name, int servings, String preparation) {
+    public Recipe(long id, String name, int servings, String preparation, Cook uploader, List<Category> categories, List<Ingredient> ingredients) {
         this.id = id;
         this.name = name;
         this.servings = servings;
         this.preparation = preparation;
+        this.uploader = uploader;
+        this.categories = categories;
+        this.ingredients = ingredients;
     }
 
     public long getId() {
