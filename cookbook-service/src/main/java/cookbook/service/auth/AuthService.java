@@ -15,4 +15,6 @@ public interface AuthService extends Initializable {
     Cook getCurrentUser();
 
     boolean authenticate(User user);
+
+    Cook findCookById(long id);
 }
