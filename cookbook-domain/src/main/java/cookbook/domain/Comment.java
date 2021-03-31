@@ -16,6 +16,8 @@ public class Comment {
         this.timestamp = timestamp;
         this.owner = owner;
         this.recipe = recipe;
+        owner.getComments().add(this);
+        recipe.getComments().add(this);
     }
 
     public long getId() {

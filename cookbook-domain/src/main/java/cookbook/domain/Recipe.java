@@ -1,5 +1,6 @@
 package cookbook.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Recipe {
@@ -11,7 +12,7 @@ public class Recipe {
     private Cook uploader;
     private List<Category> categories;
     private List<Ingredient> ingredients;
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
     public Recipe(long id, String name, int servings, String preparation, Cook uploader, List<Category> categories, List<Ingredient> ingredients) {
         this.id = id;
@@ -21,6 +22,7 @@ public class Recipe {
         this.uploader = uploader;
         this.categories = categories;
         this.ingredients = ingredients;
+        uploader.getOwnRecipes().add(this);
     }
 
     public long getId() {
