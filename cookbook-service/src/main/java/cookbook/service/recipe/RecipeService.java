@@ -12,4 +12,6 @@ public interface RecipeService extends Initializable {
     List<Recipe> getRecipes();
 
     void deleteRecipe(String name);
+
+    Recipe findById(long id);
 }
