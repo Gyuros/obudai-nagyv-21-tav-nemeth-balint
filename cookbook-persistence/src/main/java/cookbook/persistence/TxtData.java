@@ -1,10 +1,13 @@
 package cookbook.persistence;
 
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+@Component
 public class TxtData implements Data {
 
     @Override
