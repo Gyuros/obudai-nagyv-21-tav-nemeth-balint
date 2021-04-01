@@ -1,5 +1,6 @@
 package cookbook.util;
 
+import cookbook.domain.Cook;
 import cookbook.domain.Ingredient;
 import cookbook.domain.Unit;
 import org.springframework.stereotype.Component;
@@ -28,5 +29,10 @@ public class IngredientDataParser implements DataParser<Ingredient> {
                             unit);
                 })
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public String toString(List<Ingredient> models) {
+        return models.stream().map(Ingredient::toString).collect(Collectors.joining(System.lineSeparator()));
     }
 }
