@@ -17,4 +17,9 @@ public class CategoryDataParser implements DataParser<Category> {
                 .map(Category::valueOf)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public String toString(List<Category> models) {
+        return models.stream().map(Enum::toString).collect(Collectors.joining(System.lineSeparator()));
+    }
 }
