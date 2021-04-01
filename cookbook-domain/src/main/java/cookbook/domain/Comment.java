@@ -2,7 +2,7 @@ package cookbook.domain;
 
 import java.time.LocalDateTime;
 
-public class Comment {
+public class Comment implements Identifiable {
 
     private long id;
     private String description;

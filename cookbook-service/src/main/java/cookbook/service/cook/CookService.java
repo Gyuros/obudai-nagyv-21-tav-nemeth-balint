@@ -1,10 +1,10 @@
-package cookbook.service.auth;
+package cookbook.service.cook;
 
 import cookbook.domain.Cook;
 import cookbook.domain.User;
-import cookbook.service.Initializable;
+import cookbook.service.BaseService;
 
-public interface AuthService extends Initializable {
+public interface CookService extends BaseService<Cook> {
 
     void login(String username);
 
@@ -15,6 +15,4 @@ public interface AuthService extends Initializable {
     Cook getCurrentUser();
 
     boolean authenticate(User user);
-
-    Cook findCookById(long id);
 }

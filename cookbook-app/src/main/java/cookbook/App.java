@@ -1,20 +1,32 @@
 package cookbook;
 
-import cookbook.service.HelloService;
-import cookbook.view.HelloView;
+import cookbook.service.cook.CookService;
+import cookbook.service.comment.CommentService;
+import cookbook.service.recipe.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 
 @Component
 public class App {
 
     @Autowired
-    private HelloView helloView;
+    private CookService cookService;
 
     @Autowired
-    private HelloService helloService;
+    private RecipeService recipeService;
+
+    @Autowired
+    private CommentService commentService;
 
     public void start() {
-        helloView.print(helloService.get());
+        try {
+            cookService.init();
+            recipeService.init();
+            commentService.init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,7 +1,7 @@
 package cookbook.util;
 
 import cookbook.domain.Recipe;
-import cookbook.service.auth.AuthService;
+import cookbook.service.cook.CookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,12 +18,12 @@ public class RecipeDataParser implements DataParser<Recipe> {
     private IngredientDataParser ingredientDataParser;
 
     @Autowired
-    private AuthService authService;
+    private CookService cookService;
 
     @Override
     public List<Recipe> parse(String text) {
         List<Recipe> recipes = new ArrayList<>();
-        String[] datas = text.split("\\[|\\]");
+        String[] datas = text.split("[\\[\\]]");
 
         for (int i = 0; i < datas.length / 14; i++){
 
@@ -40,7 +40,7 @@ public class RecipeDataParser implements DataParser<Recipe> {
                     name,
                     servings,
                     preparation,
-                    authService.findCookById(userId),
+                    cookService.findById(userId),
                     categoryDataParser.parse(categories),
                     ingredientDataParser.parse(ingredients)));
         }

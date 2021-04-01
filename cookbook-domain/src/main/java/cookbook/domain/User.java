@@ -1,6 +1,6 @@
 package cookbook.domain;
 
-public abstract class User {
+public abstract class User implements Identifiable {
 
     private long id;
     private String username;

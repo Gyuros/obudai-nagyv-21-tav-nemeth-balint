@@ -3,7 +3,7 @@ package cookbook.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Recipe {
+public class Recipe implements Identifiable {
 
     private long id;
     private String name;

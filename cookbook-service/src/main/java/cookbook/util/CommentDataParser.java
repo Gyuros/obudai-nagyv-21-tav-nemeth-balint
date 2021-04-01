@@ -1,7 +1,7 @@
 package cookbook.util;
 
 import cookbook.domain.Comment;
-import cookbook.service.auth.AuthService;
+import cookbook.service.cook.CookService;
 import cookbook.service.recipe.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class CommentDataParser implements DataParser<Comment>{
 
     @Autowired
-    private AuthService authService;
+    private CookService cookService;
 
     @Autowired
     private RecipeService recipeService;
@@ -36,7 +36,7 @@ public class CommentDataParser implements DataParser<Comment>{
                             id,
                             description,
                             timestamp,
-                            authService.findCookById(ownerId),
+                            cookService.findById(ownerId),
                             recipeService.findById(recipeId));
                 })
                 .collect(Collectors.toList());
