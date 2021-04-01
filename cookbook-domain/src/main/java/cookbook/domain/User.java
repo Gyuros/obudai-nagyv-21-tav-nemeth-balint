@@ -23,4 +23,9 @@ public abstract class User implements Identifiable {
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %s", id, username, password);
+    }
 }
