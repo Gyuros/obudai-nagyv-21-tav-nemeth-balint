@@ -14,7 +14,7 @@ public abstract class CookbookBaseService<T extends Identifiable> implements Bas
     protected List<T> models;
 
     @Autowired
-    private DataParser<T> dataParser;
+    protected DataParser<T> dataParser;
 
     @Autowired
     protected Data data;

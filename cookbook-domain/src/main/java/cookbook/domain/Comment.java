@@ -35,4 +35,9 @@ public class Comment implements Identifiable {
     public Cook getOwner() {
         return owner;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %s %s %s", id, recipe.getId(), owner.getId(), timestamp, description);
+    }
 }
