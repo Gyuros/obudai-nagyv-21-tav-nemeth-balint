@@ -30,6 +30,6 @@ public class CookbookRecipeService extends CookbookBaseService<Recipe> implement
 
     @Override
     public void update(Object observer) {
-        System.out.println("RecipeService updated");
+        System.out.println(dataParser.toString(models));
     }
 }
