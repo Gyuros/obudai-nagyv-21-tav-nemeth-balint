@@ -17,7 +17,7 @@ public abstract class CookbookBaseService<T extends Identifiable> implements Bas
     private DataParser<T> dataParser;
 
     @Autowired
-    private Data data;
+    protected Data data;
 
     protected CookbookBaseService(String initFile) {
         this.initFile = initFile;

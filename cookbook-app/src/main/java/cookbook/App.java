@@ -25,6 +25,10 @@ public class App {
             cookService.init();
             recipeService.init();
             commentService.init();
+            cookService.add(recipeService);
+            cookService.add(commentService);
+            cookService.logout();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -2,11 +2,11 @@ package cookbook.service.cook;
 
 import cookbook.domain.Cook;
 import cookbook.domain.User;
-import cookbook.service.CookbookBaseService;
+import cookbook.service.CookbookObserverBaseService;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CookbookCookService extends CookbookBaseService<Cook> implements CookService {
+public class CookbookCookService extends CookbookObserverBaseService<Cook> implements CookService {
 
     public CookbookCookService() {
         super("cooks.txt");
@@ -19,7 +19,7 @@ public class CookbookCookService extends CookbookBaseService<Cook> implements Co
 
     @Override
     public void logout() {
-
+        updateObservables();
     }
 
     @Override

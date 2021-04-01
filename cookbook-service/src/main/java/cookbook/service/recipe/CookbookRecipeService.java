@@ -27,4 +27,9 @@ public class CookbookRecipeService extends CookbookBaseService<Recipe> implement
     public void deleteRecipe(String name) {
 
     }
+
+    @Override
+    public void update(Object observer) {
+        System.out.println("RecipeService updated");
+    }
 }

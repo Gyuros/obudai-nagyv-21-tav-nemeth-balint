@@ -2,9 +2,9 @@ package cookbook.service.cook;
 
 import cookbook.domain.Cook;
 import cookbook.domain.User;
-import cookbook.service.BaseService;
+import cookbook.service.ObserverBaseService;
 
-public interface CookService extends BaseService<Cook> {
+public interface CookService extends ObserverBaseService<Cook> {
 
     void login(String username);
 

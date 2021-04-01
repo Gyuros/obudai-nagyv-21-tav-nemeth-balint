@@ -2,10 +2,11 @@ package cookbook.service.recipe;
 
 import cookbook.domain.Recipe;
 import cookbook.service.BaseService;
+import cookbook.service.Observable;
 
 import java.util.List;
 
-public interface RecipeService extends BaseService<Recipe> {
+public interface RecipeService extends BaseService<Recipe>, Observable {
 
     void addRecipe(Recipe recipe);
 

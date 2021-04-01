@@ -16,4 +16,9 @@ public class CookbookCommentService extends CookbookBaseService<Comment> impleme
     public void saveComment(Recipe recipe, String comment) {
 
     }
+
+    @Override
+    public void update(Object observer) {
+        System.out.println("CommentService updated");
+    }
 }
