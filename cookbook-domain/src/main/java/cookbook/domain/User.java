@@ -41,11 +41,11 @@ public abstract class User implements Identifiable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id;
+        return username.equals(user.username) && password.equals(user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(username, password);
     }
 }
