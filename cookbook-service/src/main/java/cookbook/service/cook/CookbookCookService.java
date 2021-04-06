@@ -2,6 +2,7 @@ package cookbook.service.cook;
 
 import cookbook.domain.Cook;
 import cookbook.domain.User;
+import cookbook.exception.IncorrectCredentialsException;
 import cookbook.service.CookbookObserverBaseService;
 import org.springframework.stereotype.Component;
 
@@ -10,13 +11,22 @@ import java.io.IOException;
 @Component
 public class CookbookCookService extends CookbookObserverBaseService<Cook> implements CookService {
 
+    private Cook currentUser;
+
     public CookbookCookService() {
         super("cooks.txt");
     }
 
     @Override
-    public void login(String username) {
+    public void login(String username, String password) throws IncorrectCredentialsException {
+        currentUser = models.stream()
+                .filter(c -> c.getUsername().equals(username))
+                .filter(c -> c.getPassword().equals(password))
+                .findFirst()
+                .orElse(null);
 
+        if (currentUser == null)
+            throw new IncorrectCredentialsException("Nem létezik ilyen felhasználó.");
     }
 
     @Override
@@ -31,7 +41,7 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
 
     @Override
     public Cook getCurrentUser() {
-        return null;
+        return currentUser;
     }
 
     @Override
