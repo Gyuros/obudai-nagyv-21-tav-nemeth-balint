@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.List;
 
 @Component
 public class RecipeMenu {
@@ -22,6 +21,9 @@ public class RecipeMenu {
     @Autowired
     private GeneralView generalView;
 
+    @Autowired
+    private CommentMenu commentMenu;
+
     public void init() {
         try {
             recipeService.init();
@@ -34,8 +36,7 @@ public class RecipeMenu {
         String input = "";
         while (!input.equals("q")) {
 
-            List<Recipe> recipes = recipeService.getRecipes();
-            recipeView.printRecipes(recipes);
+            recipeView.printRecipes(recipeService.getRecipes());
             input = generalView.getInput();
 
             try {
@@ -47,6 +48,18 @@ public class RecipeMenu {
     }
 
     private void printRecipe(int index) {
+        try {
+            Recipe recipe = recipeService.getRecipes().get(index);
+            recipeView.printRecipe(recipe);
 
+            String input = "";
+            while (!input.equals("q")) {
+                recipeView.printGuestRecipeOptions(); // TODO: be van e jelentkezve vagy nincs
+                input = generalView.getInput().toLowerCase();
+                commentMenu.processRecipeMenuInput(recipe, input);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            // redraw recipes menu
+        }
     }
 }
