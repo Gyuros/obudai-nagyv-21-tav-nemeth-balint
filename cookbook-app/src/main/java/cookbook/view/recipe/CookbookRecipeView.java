@@ -75,7 +75,9 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
 
     @Override
     public void printRecipes(List<Recipe> recipes) {
-
+        println();
+        AtomicInteger i = new AtomicInteger();
+        print(recipes.stream().map(r -> i.getAndIncrement() + ": " + r.getName()).toArray());
     }
 
     @Override

@@ -45,7 +45,7 @@ public class App {
             cookService.add(commentService);
 //            cookService.logout();
             generalView.printWelcome();
-            recipeView.printRecipeCreated(recipeService.getRecipes().stream().findFirst().get());
+            recipeView.printRecipes(recipeService.getRecipes());
 
         } catch (IOException e) {
             e.printStackTrace();
