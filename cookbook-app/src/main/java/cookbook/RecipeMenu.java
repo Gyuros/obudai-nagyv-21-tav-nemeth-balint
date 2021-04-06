@@ -71,4 +71,12 @@ public class RecipeMenu {
             // redraw recipes menu
         }
     }
+
+    public void newRecipe() {
+
+    }
+
+    public void deleteRecipe() {
+
+    }
 }

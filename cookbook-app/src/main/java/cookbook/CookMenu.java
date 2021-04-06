@@ -34,15 +34,16 @@ public class CookMenu {
 
     public void printMainMenu() {
         String input = "";
-        while (!input.equals("q")) {
+        while (!input.equals("q") || cookService.isLoggedIn()) {
             if(cookService.isLoggedIn()) {
                 cookView.printUserOptions();
+                input = generalView.getInput().toLowerCase();
+                processPostLoginInput(input);
             } else {
                 cookView.printGuestOptions();
+                input = generalView.getInput().toLowerCase();
+                processMainMenuInput(input);
             }
-
-            input = generalView.getInput().toLowerCase();
-            processMainMenuInput(input);
         }
     }
 
@@ -61,11 +62,22 @@ public class CookMenu {
         }else{
             cookView.printIncorrectCredentials();
         }
-
-        processPostLoginInput();
     }
 
-    private void processPostLoginInput() {
+    private void processPostLoginInput(String input) {
+        switch (input){
+            case "1": recipeMenu.newRecipe(); break;
+            case "2": recipeMenu.listRecipes(); break;
+            case "3": recipeMenu.deleteRecipe(); break;
+            case "4": logout();
+        }
+    }
 
+    private void logout() {
+        try {
+            cookService.logout();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
