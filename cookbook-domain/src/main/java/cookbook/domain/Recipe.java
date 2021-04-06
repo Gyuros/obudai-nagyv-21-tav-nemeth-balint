@@ -26,6 +26,10 @@ public class Recipe implements Identifiable {
         uploader.getOwnRecipes().add(this);
     }
 
+    public Recipe(String name, int servings, String preparation, Cook uploader, List<Category> categories, List<Ingredient> ingredients) {
+        this(0, name, servings, preparation, uploader, categories, ingredients);
+    }
+
     public long getId() {
         return id;
     }

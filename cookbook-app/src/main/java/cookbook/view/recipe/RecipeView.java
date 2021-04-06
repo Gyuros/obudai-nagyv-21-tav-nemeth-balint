@@ -6,7 +6,7 @@ import cookbook.domain.Recipe;
 import java.util.List;
 
 public interface RecipeView {
-    Recipe readRecipe(Cook cook);
+    Recipe readRecipe(Cook uploader);
 
     void printRecipe(Recipe recipe);
 
