@@ -44,6 +44,7 @@ public class CookbookCookView extends BaseView implements CookView {
 
     @Override
     public User readUser() {
+        println();
         print("Give me your username:");
         String username = generalView.getInput();
         print("Give me your password:");
@@ -53,7 +54,7 @@ public class CookbookCookView extends BaseView implements CookView {
 
     @Override
     public void printIncorrectCredentials() {
-
+        print("Incorrect credentials.");
     }
 
     @Override
