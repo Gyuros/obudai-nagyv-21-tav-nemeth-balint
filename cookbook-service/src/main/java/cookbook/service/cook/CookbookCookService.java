@@ -26,7 +26,7 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
                 .orElse(null);
 
         if (currentUser == null)
-            throw new IncorrectCredentialsException("Nem létezik ilyen felhasználó.");
+            throw new IncorrectCredentialsException("User doesn't exist.");
     }
 
     @Override
