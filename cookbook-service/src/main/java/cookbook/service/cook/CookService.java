@@ -8,8 +8,6 @@ import java.io.IOException;
 
 public interface CookService extends ObserverBaseService<Cook> {
 
-    void login(String username);
-
     void logout() throws IOException;
 
     boolean isLoggedIn();

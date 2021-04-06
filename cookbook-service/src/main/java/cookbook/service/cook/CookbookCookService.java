@@ -17,14 +17,6 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
     }
 
     @Override
-    public void login(String username) {
-        currentUser = models.stream()
-                .filter(c -> c.getUsername().equals(username))
-                .findFirst()
-                .orElse(null);
-    }
-
-    @Override
     public void logout() throws IOException {
         updateObservables();
         currentUser = null;
@@ -42,6 +34,14 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
 
     @Override
     public boolean authenticate(User user) {
-        return user.equals(currentUser);
+        Cook cook = models.stream()
+                .filter(c -> c.equals(user))
+                .findFirst()
+                .orElse(null);
+
+        if(cook != null)
+            currentUser = cook;
+
+        return cook != null;
     }
 }
