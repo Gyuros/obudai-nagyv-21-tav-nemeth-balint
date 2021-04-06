@@ -1,54 +1,33 @@
 package cookbook;
 
-import cookbook.service.comment.CommentService;
-import cookbook.service.cook.CookService;
-import cookbook.service.recipe.RecipeService;
 import cookbook.view.GeneralView;
-import cookbook.view.comment.CommentView;
-import cookbook.view.cook.CookView;
-import cookbook.view.recipe.RecipeView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.io.IOException;
 
 @Component
 public class App {
 
     @Autowired
-    private CookService cookService;
+    private CommentMenu commentMenu;
 
     @Autowired
-    private RecipeService recipeService;
+    private CookMenu cookMenu;
 
     @Autowired
-    private CommentService commentService;
+    private RecipeMenu recipeMenu;
 
     @Autowired
     private GeneralView generalView;
 
-    @Autowired
-    private CommentView commentView;
-
-    @Autowired
-    private CookView cookView;
-
-    @Autowired
-    private RecipeView recipeView;
-
     public void start() {
-        try {
-            cookService.init();
-            recipeService.init();
-            commentService.init();
-            cookService.add(recipeService);
-            cookService.add(commentService);
-//            cookService.logout();
-            generalView.printWelcome();
-            recipeView.printRecipes(recipeService.getRecipes());
+       init();
+       generalView.printWelcome();
+       cookMenu.printMainMenu();
+    }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void init() {
+        cookMenu.init();
+        recipeMenu.init();
+        commentMenu.init();
     }
 }

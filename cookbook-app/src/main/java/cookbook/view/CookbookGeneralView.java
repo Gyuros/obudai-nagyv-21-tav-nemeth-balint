@@ -20,4 +20,9 @@ public class CookbookGeneralView extends BaseView implements GeneralView {
     public String getInput() {
         return scanner.nextLine();
     }
+
+    @Override
+    public void printEnd() {
+        print("-- Application ended --");
+    }
 }
