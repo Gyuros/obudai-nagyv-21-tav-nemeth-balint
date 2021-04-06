@@ -82,7 +82,7 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
 
     @Override
     public String readRecipeId() {
-        return null;
+        return generalView.getInput();
     }
 
     private List<Category> getRecipeCategories() {
