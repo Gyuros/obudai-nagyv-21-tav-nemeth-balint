@@ -9,6 +9,7 @@ public class CookbookCookView extends BaseView implements CookView {
 
     @Override
     public void printUserOptions() {
+        println();
         print(
                 "1: Create new recipe.",
                 "2: List existing recipes.",
@@ -18,7 +19,11 @@ public class CookbookCookView extends BaseView implements CookView {
 
     @Override
     public void printGuestOptions() {
-
+        println();
+        print(
+                "1: Log in.",
+                "2: Browse existing recipes.",
+                "Q: Exit the application");
     }
 
     @Override
