@@ -6,13 +6,15 @@ public class BaseView {
         for(String line : lines) {
             System.out.println(line);
         }
-        System.out.println();
     }
 
     protected void print(Object... lines) {
         for(Object line : lines) {
             System.out.println(line);
         }
+    }
+
+    protected void println() {
         System.out.println();
     }
 }

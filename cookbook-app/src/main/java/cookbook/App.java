@@ -38,6 +38,8 @@ public class App {
 //            cookService.logout();
             generalView.printWelcome();
             commentView.printRecipeComments(recipeService.getRecipes().stream().findFirst().get());
+            commentView.printNewCommentForm();
+            generalView.getInput();
 
         } catch (IOException e) {
             e.printStackTrace();

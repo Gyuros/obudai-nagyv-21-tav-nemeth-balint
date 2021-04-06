@@ -13,7 +13,8 @@ public class CookbookGeneralView extends BaseView implements GeneralView {
     public void printWelcome() {
         print(
                 "-- Application started --",
-                "-- Welcome to the Cookbook application! --");
+                "-- Welcome to the Cookbook application! --",
+                "");
     }
 
     @Override
