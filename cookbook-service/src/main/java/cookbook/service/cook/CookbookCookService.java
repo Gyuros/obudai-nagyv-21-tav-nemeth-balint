@@ -2,7 +2,6 @@ package cookbook.service.cook;
 
 import cookbook.domain.Cook;
 import cookbook.domain.User;
-import cookbook.exception.IncorrectCredentialsException;
 import cookbook.service.CookbookObserverBaseService;
 import org.springframework.stereotype.Component;
 
@@ -18,15 +17,11 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
     }
 
     @Override
-    public void login(String username, String password) throws IncorrectCredentialsException {
+    public void login(String username) {
         currentUser = models.stream()
                 .filter(c -> c.getUsername().equals(username))
-                .filter(c -> c.getPassword().equals(password))
                 .findFirst()
                 .orElse(null);
-
-        if (currentUser == null)
-            throw new IncorrectCredentialsException("User doesn't exist.");
     }
 
     @Override
@@ -37,7 +32,7 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
 
     @Override
     public boolean isLoggedIn() {
-        return currentUser == null;
+        return currentUser != null;
     }
 
     @Override
