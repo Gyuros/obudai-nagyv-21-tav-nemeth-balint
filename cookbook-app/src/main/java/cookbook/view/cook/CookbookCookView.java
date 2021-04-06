@@ -1,11 +1,17 @@
 package cookbook.view.cook;
 
+import cookbook.domain.Cook;
 import cookbook.domain.User;
 import cookbook.view.BaseView;
+import cookbook.view.GeneralView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CookbookCookView extends BaseView implements CookView {
+
+    @Autowired
+    private GeneralView generalView;
 
     @Override
     public void printUserOptions() {
@@ -38,7 +44,11 @@ public class CookbookCookView extends BaseView implements CookView {
 
     @Override
     public User readUser() {
-        return null;
+        print("Give me your username:");
+        String username = generalView.getInput();
+        print("Give me your password:");
+        String password = generalView.getInput();
+        return new Cook(username, password);
     }
 
     @Override

@@ -14,6 +14,11 @@ public abstract class User implements Identifiable {
         this.password = password;
     }
 
+    protected User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public long getId() {
         return id;
     }

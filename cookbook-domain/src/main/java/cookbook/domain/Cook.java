@@ -12,6 +12,10 @@ public class Cook extends User {
         super(id, username, password);
     }
 
+    public Cook(String username, String password) {
+        super(username, password);
+    }
+
     public List<Recipe> getOwnRecipes() {
         return ownRecipes;
     }
