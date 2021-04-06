@@ -2,8 +2,13 @@ package cookbook.view;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Scanner;
+
 @Component
 public class CookbookGeneralView extends BaseView implements GeneralView {
+
+    private Scanner scanner = new Scanner(System.in);
+
     @Override
     public void printWelcome() {
         print(
@@ -13,6 +18,6 @@ public class CookbookGeneralView extends BaseView implements GeneralView {
 
     @Override
     public String getInput() {
-        return null;
+        return scanner.nextLine();
     }
 }
