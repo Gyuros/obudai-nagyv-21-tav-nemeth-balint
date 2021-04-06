@@ -4,6 +4,8 @@ import cookbook.domain.Recipe;
 import cookbook.service.CookbookBaseService;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -22,7 +24,7 @@ public class CookbookRecipeService extends CookbookBaseService<Recipe> implement
 
     @Override
     public List<Recipe> getRecipes() {
-        return null;
+        return Collections.unmodifiableList(models);
     }
 
     @Override
