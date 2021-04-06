@@ -1,9 +1,10 @@
 package cookbook;
 
-import cookbook.service.cook.CookService;
 import cookbook.service.comment.CommentService;
+import cookbook.service.cook.CookService;
 import cookbook.service.recipe.RecipeService;
 import cookbook.view.GeneralView;
+import cookbook.view.comment.CommentView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +25,9 @@ public class App {
     @Autowired
     private GeneralView generalView;
 
+    @Autowired
+    private CommentView commentView;
+
     public void start() {
         try {
             cookService.init();
@@ -33,8 +37,8 @@ public class App {
             cookService.add(commentService);
 //            cookService.logout();
             generalView.printWelcome();
-            generalView.getInput();
-            generalView.printWelcome();
+            commentView.printRecipeComments(recipeService.getRecipes().stream().findFirst().get());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
