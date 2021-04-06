@@ -32,12 +32,16 @@ public class CookMenu {
     }
 
     public void printMainMenu() {
-        cookView.printGuestOptions();
-        processMainMenuInput(generalView.getInput());
+        String input = "";
+        while (!input.equals("q")) {
+            cookView.printGuestOptions();
+            input = generalView.getInput().toLowerCase();
+            processMainMenuInput(input);
+        }
     }
 
     private void processMainMenuInput(String input) {
-        switch (input.toLowerCase()){
+        switch (input){
             case "1": login(); break;
             case "2": recipeMenu.listRecipes(); break;
             default: generalView.printEnd();
