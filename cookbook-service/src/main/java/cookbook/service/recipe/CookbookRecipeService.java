@@ -4,12 +4,10 @@ import cookbook.domain.Recipe;
 import cookbook.service.CookbookBaseService;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.List;
 
 @Component
 public class CookbookRecipeService extends CookbookBaseService<Recipe> implements RecipeService {
-
 
     public static final String FILE_NAME = "recipes.txt";
 
@@ -19,7 +17,7 @@ public class CookbookRecipeService extends CookbookBaseService<Recipe> implement
 
     @Override
     public void addRecipe(Recipe recipe) {
-
+        models.add(recipe);
     }
 
     @Override
