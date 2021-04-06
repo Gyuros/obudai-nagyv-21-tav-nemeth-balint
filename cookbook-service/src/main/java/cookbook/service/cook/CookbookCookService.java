@@ -47,6 +47,6 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
 
     @Override
     public boolean authenticate(User user) {
-        return false;
+        return user.equals(currentUser);
     }
 }

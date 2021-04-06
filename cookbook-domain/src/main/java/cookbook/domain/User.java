@@ -1,5 +1,7 @@
 package cookbook.domain;
 
+import java.util.Objects;
+
 public abstract class User implements Identifiable {
 
     private long id;
@@ -27,5 +29,18 @@ public abstract class User implements Identifiable {
     @Override
     public String toString() {
         return String.format("%s %s %s", id, username, password);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
