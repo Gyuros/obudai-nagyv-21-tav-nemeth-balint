@@ -2,6 +2,7 @@ package cookbook.service;
 
 import cookbook.domain.Identifiable;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,10 @@ public class CookbookObserverBaseService<T extends Identifiable> extends Cookboo
         observables = new ArrayList<>();
     }
 
-    protected void updateObservables() {
-        observables.forEach(o -> o.update(this));
+    protected void updateObservables() throws IOException {
+        for (var observable : observables) {
+            observable.update(this);
+        }
     }
 
     public void add(Observable observable) {

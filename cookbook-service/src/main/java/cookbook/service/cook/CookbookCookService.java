@@ -5,6 +5,8 @@ import cookbook.domain.User;
 import cookbook.service.CookbookObserverBaseService;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class CookbookCookService extends CookbookObserverBaseService<Cook> implements CookService {
 
@@ -18,7 +20,7 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
     }
 
     @Override
-    public void logout() {
+    public void logout() throws IOException {
         updateObservables();
     }
 

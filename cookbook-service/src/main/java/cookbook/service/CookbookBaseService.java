@@ -2,6 +2,7 @@ package cookbook.service;
 
 import cookbook.domain.Identifiable;
 import cookbook.persistence.Data;
+import cookbook.service.recipe.CookbookRecipeService;
 import cookbook.util.DataParser;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -33,5 +34,9 @@ public abstract class CookbookBaseService<T extends Identifiable> implements Bas
                 .filter(c -> c.getId() == id)
                 .findFirst()
                 .orElse(null);
+    }
+
+    public void update(Object observer) throws IOException {
+        data.write(CookbookRecipeService.FILE_NAME, dataParser.toString(models));
     }
 }
