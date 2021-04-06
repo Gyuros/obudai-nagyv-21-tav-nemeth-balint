@@ -55,4 +55,9 @@ public class CookbookCookView extends BaseView implements CookView {
     public void printIncorrectCredentials() {
 
     }
+
+    @Override
+    public void printUserLoggedIn(User user) {
+        print("-- " + user.getUsername() + " logged in --");
+    }
 }

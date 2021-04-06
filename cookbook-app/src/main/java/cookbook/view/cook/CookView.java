@@ -14,4 +14,6 @@ public interface CookView {
     User readUser();
 
     void printIncorrectCredentials();
+
+    void printUserLoggedIn(User user);
 }
