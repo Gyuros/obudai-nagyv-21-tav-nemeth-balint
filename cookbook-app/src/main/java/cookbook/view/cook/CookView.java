@@ -9,7 +9,7 @@ public interface CookView {
 
     void printNotAuthenticated();
 
-    void printLogout();
+    void printLogout(User user);
 
     User readUser();
 

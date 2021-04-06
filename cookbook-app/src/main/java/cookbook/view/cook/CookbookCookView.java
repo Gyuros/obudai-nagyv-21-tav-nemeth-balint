@@ -32,8 +32,8 @@ public class CookbookCookView extends BaseView implements CookView {
     }
 
     @Override
-    public void printLogout() {
-
+    public void printLogout(User user) {
+        print("-- " + user.getUsername() + " user logged out --");
     }
 
     @Override
