@@ -37,7 +37,7 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
 
     @Override
     public boolean isLoggedIn() {
-        return false;
+        return currentUser == null;
     }
 
     @Override
