@@ -8,9 +8,9 @@ import java.util.List;
 public interface RecipeView {
     Recipe readRecipe(Cook uploader);
 
-    void printRecipeShort(Recipe recipe);
+    void printRecipeCreated(Recipe recipe);
 
-    void printRecipeLong(Recipe recipe);
+    void printRecipe(Recipe recipe);
 
     void printUserRecipeOptions();
 
