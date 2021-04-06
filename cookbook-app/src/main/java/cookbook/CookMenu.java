@@ -1,5 +1,6 @@
 package cookbook;
 
+import cookbook.domain.User;
 import cookbook.service.cook.CookService;
 import cookbook.view.GeneralView;
 import cookbook.view.cook.CookView;
@@ -34,7 +35,12 @@ public class CookMenu {
     public void printMainMenu() {
         String input = "";
         while (!input.equals("q")) {
-            cookView.printGuestOptions();
+            if(cookService.isLoggedIn()) {
+                cookView.printUserOptions();
+            } else {
+                cookView.printGuestOptions();
+            }
+
             input = generalView.getInput().toLowerCase();
             processMainMenuInput(input);
         }
@@ -49,6 +55,17 @@ public class CookMenu {
     }
 
     private void login() {
+        User user = cookView.readUser();
+        if(cookService.authenticate(user)){
+            cookView.printUserLoggedIn(cookService.getCurrentUser());
+        }else{
+            cookView.printIncorrectCredentials();
+        }
+
+        processPostLoginInput();
+    }
+
+    private void processPostLoginInput() {
 
     }
 }
