@@ -67,7 +67,10 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
 
     @Override
     public void printGuestRecipeOptions() {
-
+        println();
+        print("1: See comments",
+                "2: -- Log in to write comments --",
+                "Q: Go back");
     }
 
     @Override
