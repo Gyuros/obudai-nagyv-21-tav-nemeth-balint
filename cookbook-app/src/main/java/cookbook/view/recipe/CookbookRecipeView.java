@@ -26,11 +26,20 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
         String preparation = getRecipePreparation();
         List<Category> categories = getRecipeCategories();
 
+        print("-- Recipe created with the following informations --");
         return new Recipe(name, servings, preparation, uploader, categories, ingredients);
     }
 
     @Override
-    public void printRecipe(Recipe recipe) {
+    public void printRecipeShort(Recipe recipe) {
+        print("Name:\t\t" + recipe.getName(),
+                "Recipe ID: \t" + recipe.getId(),
+                "Servings: \t" + recipe.getServings(),
+                "Uploader: \t" + recipe.getUploader().getUsername());
+    }
+
+    @Override
+    public void printRecipeLong(Recipe recipe) {
 
     }
 
