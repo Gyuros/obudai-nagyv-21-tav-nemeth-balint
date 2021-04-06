@@ -32,6 +32,7 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
     @Override
     public void logout() throws IOException {
         updateObservables();
+        currentUser = null;
     }
 
     @Override
