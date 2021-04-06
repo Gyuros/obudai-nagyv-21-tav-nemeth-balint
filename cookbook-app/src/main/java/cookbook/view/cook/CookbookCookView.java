@@ -28,7 +28,7 @@ public class CookbookCookView extends BaseView implements CookView {
 
     @Override
     public void printNotAuthenticated() {
-
+        print("User not authenticated");
     }
 
     @Override
