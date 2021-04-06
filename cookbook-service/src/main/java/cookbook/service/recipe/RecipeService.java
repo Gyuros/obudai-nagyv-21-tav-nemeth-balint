@@ -1,6 +1,7 @@
 package cookbook.service.recipe;
 
 import cookbook.domain.Recipe;
+import cookbook.exception.ModelNotFoundException;
 import cookbook.service.BaseService;
 import cookbook.service.Observable;
 
@@ -12,5 +13,5 @@ public interface RecipeService extends BaseService<Recipe>, Observable {
 
     List<Recipe> getRecipes();
 
-    void deleteRecipe(String name);
+    void deleteRecipe(String name) throws ModelNotFoundException;
 }

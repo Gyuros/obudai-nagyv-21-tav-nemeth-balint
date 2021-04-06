@@ -1,10 +1,10 @@
 package cookbook.service.recipe;
 
 import cookbook.domain.Recipe;
+import cookbook.exception.ModelNotFoundException;
 import cookbook.service.CookbookBaseService;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -28,7 +28,15 @@ public class CookbookRecipeService extends CookbookBaseService<Recipe> implement
     }
 
     @Override
-    public void deleteRecipe(String name) {
+    public void deleteRecipe(String name) throws ModelNotFoundException {
+        Recipe removable = models.stream()
+                .filter(r -> r.getName().equals(name))
+                .findFirst()
+                .orElse(null);
 
+        if(removable == null)
+            throw new ModelNotFoundException("Model not found.");
+
+        models.remove(removable);
     }
 }
