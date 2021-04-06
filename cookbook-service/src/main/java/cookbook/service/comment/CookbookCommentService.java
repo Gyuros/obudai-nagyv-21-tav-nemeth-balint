@@ -12,13 +12,11 @@ import java.time.LocalDateTime;
 @Component
 public class CookbookCommentService extends CookbookBaseService<Comment> implements CommentService {
 
-    private static final String FILE_NAME = "comments.txt";
-
     @Autowired
     private CookbookCookService cookService;
 
     public CookbookCommentService() {
-        super(FILE_NAME);
+        super("comments.txt");
     }
 
     @Override

@@ -11,11 +11,7 @@ import java.util.List;
 @Component
 public class CookbookRecipeService extends CookbookBaseService<Recipe> implements RecipeService {
 
-    public static final String FILE_NAME = "recipes.txt";
-
-    public CookbookRecipeService() {
-        super(FILE_NAME);
-    }
+    public CookbookRecipeService() { super("recipes.txt"); }
 
     @Override
     public void addRecipe(Recipe recipe) {
