@@ -1,6 +1,7 @@
 package cookbook;
 
 import cookbook.domain.Recipe;
+import cookbook.service.cook.CookService;
 import cookbook.service.recipe.RecipeService;
 import cookbook.view.GeneralView;
 import cookbook.view.recipe.RecipeView;
@@ -23,6 +24,9 @@ public class RecipeMenu {
 
     @Autowired
     private CommentMenu commentMenu;
+
+    @Autowired
+    private CookService cookService;
 
     public void init() {
         try {
@@ -54,7 +58,12 @@ public class RecipeMenu {
 
             String input = "";
             while (!input.equals("q")) {
-                recipeView.printGuestRecipeOptions(); // TODO: be van e jelentkezve vagy nincs
+                if(cookService.isLoggedIn()){
+                    recipeView.printUserRecipeOptions();
+                }else{
+                    recipeView.printGuestRecipeOptions();
+                }
+
                 input = generalView.getInput().toLowerCase();
                 commentMenu.processRecipeMenuInput(recipe, input);
             }
