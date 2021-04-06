@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class CategoryDataParser implements DataParser<Category> {
+public class CategoryDataParser extends BaseDataParser<Category> {
 
     @Override
     public List<Category> parse(String text) {
@@ -16,10 +16,5 @@ public class CategoryDataParser implements DataParser<Category> {
                 .filter(x -> !x.isEmpty())
                 .map(Category::valueOf)
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public String toString(List<Category> models) {
-        return models.stream().map(Enum::toString).collect(Collectors.joining(System.lineSeparator()));
     }
 }

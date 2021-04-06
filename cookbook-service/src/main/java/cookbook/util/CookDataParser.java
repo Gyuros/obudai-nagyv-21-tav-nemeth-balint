@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class CookDataParser implements DataParser<Cook> {
+public class CookDataParser extends BaseDataParser<Cook> {
 
     @Override
     public List<Cook> parse(String text) {
@@ -27,10 +27,5 @@ public class CookDataParser implements DataParser<Cook> {
                             password);
                 })
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public String toString(List<Cook> models) {
-        return models.stream().map(Cook::toString).collect(Collectors.joining(System.lineSeparator()));
     }
 }

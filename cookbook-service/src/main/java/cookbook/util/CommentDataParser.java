@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class CommentDataParser implements DataParser<Comment>{
+public class CommentDataParser extends BaseDataParser<Comment> {
 
     @Autowired
     private CookService cookService;
@@ -40,10 +40,5 @@ public class CommentDataParser implements DataParser<Comment>{
                             recipeService.findById(recipeId));
                 })
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public String toString(List<Comment> models) {
-        return models.stream().map(Comment::toString).collect(Collectors.joining(System.lineSeparator()));
     }
 }

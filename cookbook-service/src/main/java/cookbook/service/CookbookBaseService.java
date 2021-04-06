@@ -37,6 +37,7 @@ public abstract class CookbookBaseService<T extends Identifiable> implements Bas
     }
 
     public void update(Object observer) throws IOException {
-        data.write(CookbookRecipeService.FILE_NAME, dataParser.toString(models));
+        System.out.println(dataParser.toString(models));
+        data.write(initFile, dataParser.toString(models));
     }
 }

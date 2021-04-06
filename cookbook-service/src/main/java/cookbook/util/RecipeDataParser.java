@@ -1,6 +1,5 @@
 package cookbook.util;
 
-import cookbook.domain.Cook;
 import cookbook.domain.Recipe;
 import cookbook.service.cook.CookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +7,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
-public class RecipeDataParser implements DataParser<Recipe> {
+public class RecipeDataParser extends BaseDataParser<Recipe> {
 
     @Autowired
     private CategoryDataParser categoryDataParser;
@@ -50,10 +48,5 @@ public class RecipeDataParser implements DataParser<Recipe> {
         }
 
         return recipes;
-    }
-
-    @Override
-    public String toString(List<Recipe> models) {
-        return models.stream().map(Recipe::toString).collect(Collectors.joining(System.lineSeparator()));
     }
 }
