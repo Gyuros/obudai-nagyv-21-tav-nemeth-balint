@@ -1,6 +1,7 @@
 package cookbook.util;
 
 import cookbook.domain.Comment;
+import cookbook.exception.ModelNotFoundException;
 import cookbook.service.cook.CookService;
 import cookbook.service.recipe.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class CommentDataParser extends BaseDataParser<Comment> {
     private RecipeService recipeService;
 
     @Override
-    public List<Comment> parse(String text) {
+    public List<Comment> parse(String text) throws ModelNotFoundException {
         return Arrays.stream(text.split("\r\n"))
                 .map(line -> {
                     String[] values = line.split(" ");

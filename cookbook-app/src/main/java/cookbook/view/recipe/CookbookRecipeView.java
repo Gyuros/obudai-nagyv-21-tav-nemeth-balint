@@ -83,7 +83,28 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
 
     @Override
     public String readRecipeId() {
-        return generalView.getInput();
+        print("Enter the id of the recipe you want to delete:");
+        String id = generalView.getInput();
+
+        print("Are you sure? (Y/N)");
+        String answer = generalView.getInput();
+
+        return answer.equalsIgnoreCase("y") ? id : null;
+    }
+
+    @Override
+    public void printIncorrectId(String id) {
+        print("Recipe with id " + id + " not found.");
+    }
+
+    @Override
+    public void printRecipeDeleted(String id) {
+        print("-- Recipe with account ID: " + id + " deleted. --");
+    }
+
+    @Override
+    public void printCredentialsNotFound() {
+        print("You cannot delete another's cook's recipe.");
     }
 
     private List<Category> getRecipeCategories() {

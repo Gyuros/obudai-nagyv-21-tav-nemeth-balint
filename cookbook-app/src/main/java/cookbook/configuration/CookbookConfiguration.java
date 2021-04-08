@@ -45,7 +45,7 @@ public class CookbookConfiguration {
     private <T extends Identifiable> void init(BaseService<T> service) {
         try {
             service.init();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

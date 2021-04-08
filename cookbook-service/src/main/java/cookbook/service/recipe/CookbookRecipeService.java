@@ -1,6 +1,5 @@
 package cookbook.service.recipe;
 
-import cookbook.domain.Comment;
 import cookbook.domain.Recipe;
 import cookbook.exception.ModelNotFoundException;
 import cookbook.service.CookbookBaseService;
@@ -31,14 +30,16 @@ public class CookbookRecipeService extends CookbookBaseService<Recipe> implement
     }
 
     @Override
-    public void deleteRecipe(String name) throws ModelNotFoundException {
+    public void deleteRecipe(String id) throws ModelNotFoundException {
         Recipe removable = models.stream()
-                .filter(r -> r.getName().equals(name))
+                .filter(r -> r.getId() == Long.parseLong(id))
                 .findFirst()
                 .orElse(null);
 
         if(removable == null)
             throw new ModelNotFoundException("Model not found.");
+
+        removable.getUploader().getOwnRecipes().remove(removable);
 
         models.remove(removable);
     }

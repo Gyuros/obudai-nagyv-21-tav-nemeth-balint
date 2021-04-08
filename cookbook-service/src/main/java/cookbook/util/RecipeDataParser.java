@@ -1,6 +1,7 @@
 package cookbook.util;
 
 import cookbook.domain.Recipe;
+import cookbook.exception.ModelNotFoundException;
 import cookbook.service.cook.CookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,7 @@ public class RecipeDataParser extends BaseDataParser<Recipe> {
     private CookService cookService;
 
     @Override
-    public List<Recipe> parse(String text) {
+    public List<Recipe> parse(String text) throws ModelNotFoundException {
         List<Recipe> recipes = new ArrayList<>();
         String[] datas = text.split("[\\[\\]]");
 

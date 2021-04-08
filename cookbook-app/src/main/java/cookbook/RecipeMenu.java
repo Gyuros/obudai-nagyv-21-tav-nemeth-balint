@@ -1,12 +1,16 @@
 package cookbook;
 
 import cookbook.domain.Recipe;
+import cookbook.exception.ModelNotFoundException;
+import cookbook.service.comment.CommentService;
 import cookbook.service.cook.CookService;
 import cookbook.service.recipe.RecipeService;
 import cookbook.view.GeneralView;
 import cookbook.view.recipe.RecipeView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.security.auth.login.CredentialNotFoundException;
 
 @Component
 public class RecipeMenu {
@@ -25,6 +29,9 @@ public class RecipeMenu {
 
     @Autowired
     private CookService cookService;
+
+    @Autowired
+    private CommentService commentService;
 
     public void listRecipes() {
         String input = "";
@@ -69,6 +76,17 @@ public class RecipeMenu {
     }
 
     public void deleteRecipe() {
-
+        String id = recipeView.readRecipeId();
+        if(id != null) {
+            try {
+                commentService.deleteCommentsForRecipe(recipeService.findById(Long.parseLong(id)));
+                recipeService.deleteRecipe(id);
+                recipeView.printRecipeDeleted(id);
+            } catch (ModelNotFoundException e) {
+                recipeView.printIncorrectId(id);
+            } catch (CredentialNotFoundException e) {
+                recipeView.printCredentialsNotFound();
+            }
+        }
     }
 }

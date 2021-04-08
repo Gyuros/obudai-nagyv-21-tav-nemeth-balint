@@ -19,4 +19,10 @@ public interface RecipeView {
     void printRecipes(List<Recipe> recipes);
 
     String readRecipeId();
+
+    void printIncorrectId(String id);
+
+    void printRecipeDeleted(String id);
+
+    void printCredentialsNotFound();
 }

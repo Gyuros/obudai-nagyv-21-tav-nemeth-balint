@@ -1,6 +1,7 @@
 package cookbook.service;
 
 import cookbook.domain.Identifiable;
+import cookbook.exception.ModelNotFoundException;
 import cookbook.persistence.Data;
 import cookbook.util.DataParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +26,21 @@ public abstract class CookbookBaseService<T extends Identifiable> implements Bas
         this.initFile = initFile;
     }
 
-    public void init() throws IOException {
+    public void init() throws IOException, ModelNotFoundException {
         String initData = data.read(initFile);
         models = dataParser.parse(initData);
     }
 
-    public T findById(long id) {
-        return models.stream()
+    public T findById(long id) throws ModelNotFoundException {
+        T model = models.stream()
                 .filter(c -> c.getId() == id)
                 .findFirst()
                 .orElse(null);
+
+        if(model == null)
+            throw new ModelNotFoundException("Model not found.");
+
+        return model;
     }
 
     public void update(Object observer) throws IOException {
