@@ -8,8 +8,6 @@ import cookbook.view.recipe.RecipeView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-
 @Component
 public class RecipeMenu {
 
@@ -27,14 +25,6 @@ public class RecipeMenu {
 
     @Autowired
     private CookService cookService;
-
-    public void init() {
-        try {
-            recipeService.init();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void listRecipes() {
         String input = "";

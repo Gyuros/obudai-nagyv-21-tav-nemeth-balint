@@ -24,14 +24,6 @@ public class CookMenu {
     @Autowired
     private RecipeMenu recipeMenu;
 
-    public void init() {
-        try {
-            cookService.init();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void printMainMenu() {
         String input = "";
         while (!input.equals("q") || cookService.isLoggedIn()) {

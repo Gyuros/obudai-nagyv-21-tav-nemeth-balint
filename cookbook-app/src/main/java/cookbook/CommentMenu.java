@@ -9,8 +9,6 @@ import cookbook.view.cook.CookView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-
 @Component
 public class CommentMenu {
 
@@ -28,14 +26,6 @@ public class CommentMenu {
 
     @Autowired
     private GeneralView generalView;
-
-    public void init() {
-        try {
-            commentService.init();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void processRecipeMenuInput(Recipe recipe, String input) {
         switch (input){

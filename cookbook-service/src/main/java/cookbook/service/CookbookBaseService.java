@@ -2,11 +2,11 @@ package cookbook.service;
 
 import cookbook.domain.Identifiable;
 import cookbook.persistence.Data;
-import cookbook.service.recipe.CookbookRecipeService;
 import cookbook.util.DataParser;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class CookbookBaseService<T extends Identifiable> implements BaseService<T> {
@@ -21,6 +21,7 @@ public abstract class CookbookBaseService<T extends Identifiable> implements Bas
     protected Data data;
 
     protected CookbookBaseService(String initFile) {
+        this.models = new ArrayList<>();
         this.initFile = initFile;
     }
 
@@ -37,7 +38,6 @@ public abstract class CookbookBaseService<T extends Identifiable> implements Bas
     }
 
     public void update(Object observer) throws IOException {
-        System.out.println(dataParser.toString(models));
         data.write(initFile, dataParser.toString(models));
     }
 }
