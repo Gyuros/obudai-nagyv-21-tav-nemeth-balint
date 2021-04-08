@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Cook extends User {
 
-    private List<Recipe> ownRecipes = new ArrayList<>();
-    private List<Comment> comments = new ArrayList<>();
+    private final List<Recipe> ownRecipes = new ArrayList<>();
+    private final List<Comment> comments = new ArrayList<>();
 
     public Cook(long id, String username, String password) {
         super(id, username, password);

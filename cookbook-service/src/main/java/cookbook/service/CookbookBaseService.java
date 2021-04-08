@@ -12,7 +12,7 @@ import java.util.List;
 
 public abstract class CookbookBaseService<T extends Identifiable> implements BaseService<T> {
 
-    private String initFile;
+    private final String initFile;
     protected List<T> models;
 
     @Autowired

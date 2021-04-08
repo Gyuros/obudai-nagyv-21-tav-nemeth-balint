@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class CookbookCategoryService implements CategoryService {
 
-    private Set<Category> categories = Set.of(Category.values());
+    private final Set<Category> categories = Set.of(Category.values());
 
     @Override
     public Set<Category> getCategories() {

@@ -7,7 +7,7 @@ import java.util.Scanner;
 @Component
 public class CookbookGeneralView extends BaseView implements GeneralView {
 
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     @Override
     public void printWelcome() {

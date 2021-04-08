@@ -4,11 +4,11 @@ import java.time.LocalDateTime;
 
 public class Comment implements Identifiable {
 
-    private long id;
-    private String description;
-    private LocalDateTime timestamp;
-    private Cook owner;
-    private Recipe recipe;
+    private final long id;
+    private final String description;
+    private final LocalDateTime timestamp;
+    private final Cook owner;
+    private final Recipe recipe;
 
     public Comment(long id, String description, LocalDateTime timestamp, Cook owner, Recipe recipe) {
         this.id = id;

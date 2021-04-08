@@ -5,8 +5,8 @@ import java.util.Objects;
 public abstract class User implements Identifiable {
 
     private long id;
-    private String username;
-    private String password;
+    private final String username;
+    private final String password;
 
     protected User(long id, String username, String password) {
         this.id = id;

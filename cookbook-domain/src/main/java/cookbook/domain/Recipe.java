@@ -7,13 +7,13 @@ import java.util.stream.Collectors;
 public class Recipe implements Identifiable {
 
     private long id;
-    private String name;
-    private int servings;
-    private String preparation;
-    private Cook uploader;
-    private List<Category> categories;
-    private List<Ingredient> ingredients;
-    private List<Comment> comments = new ArrayList<>();
+    private final String name;
+    private final int servings;
+    private final String preparation;
+    private final Cook uploader;
+    private final List<Category> categories;
+    private final List<Ingredient> ingredients;
+    private final List<Comment> comments = new ArrayList<>();
 
     public Recipe(long id, String name, int servings, String preparation, Cook uploader, List<Category> categories, List<Ingredient> ingredients) {
         this.id = id;

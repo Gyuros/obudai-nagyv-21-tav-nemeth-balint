@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CookbookObserverBaseService<T extends Identifiable> extends CookbookBaseService<T> implements ObserverBaseService<T> {
 
-    private List<Observable> observables;
+    private final List<Observable> observables;
 
     protected CookbookObserverBaseService(String initFile) {
         super(initFile);
