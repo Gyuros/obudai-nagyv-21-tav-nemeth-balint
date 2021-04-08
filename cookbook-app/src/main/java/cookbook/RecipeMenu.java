@@ -63,7 +63,9 @@ public class RecipeMenu {
     }
 
     public void newRecipe() {
-
+        Recipe recipe = recipeView.readRecipe(cookService.getCurrentUser());
+        recipeService.addRecipe(recipe);
+        recipeView.printRecipeCreated(recipe);
     }
 
     public void deleteRecipe() {

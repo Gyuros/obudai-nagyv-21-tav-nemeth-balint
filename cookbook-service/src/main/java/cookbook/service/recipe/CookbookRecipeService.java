@@ -1,5 +1,6 @@
 package cookbook.service.recipe;
 
+import cookbook.domain.Comment;
 import cookbook.domain.Recipe;
 import cookbook.exception.ModelNotFoundException;
 import cookbook.service.CookbookBaseService;
@@ -15,6 +16,12 @@ public class CookbookRecipeService extends CookbookBaseService<Recipe> implement
 
     @Override
     public void addRecipe(Recipe recipe) {
+        long lastId = models.stream()
+                .map(Recipe::getId)
+                .max(Long::compare)
+                .orElse(1L);
+
+        recipe.setId(lastId + 1);
         models.add(recipe);
     }
 

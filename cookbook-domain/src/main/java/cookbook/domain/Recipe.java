@@ -30,6 +30,10 @@ public class Recipe implements Identifiable {
         this(0, name, servings, preparation, uploader, categories, ingredients);
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }

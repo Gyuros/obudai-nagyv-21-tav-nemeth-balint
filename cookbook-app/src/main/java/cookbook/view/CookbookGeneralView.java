@@ -23,6 +23,7 @@ public class CookbookGeneralView extends BaseView implements GeneralView {
 
     @Override
     public void printEnd() {
+        println();
         print("-- Application ended --");
     }
 }

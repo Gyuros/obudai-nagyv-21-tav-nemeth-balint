@@ -23,3 +23,25 @@ Season, to taste and serve in a warm bowl, garnished with a mint leaf.
 [categories]
 SOUP
 SALTY
+[id]
+2
+[user_id]
+2
+[name]
+French onion soup
+[ingredients]
+200.0 GRAM butter
+2.0 PIECE garlic
+10.0 PIECE onion
+10.0 MILLILITER olive
+[preparation]
+Cook the onions, stirring often, until they have softened, about 15 to 20 minutes.
+Add the vermouth to the pot and scrape up the browned bits on the bottom and sides of the pot, deglazing the pot as you go.
+Add the stock, bay leaves, and thyme. Bring to a simmer, cover the pot and lower the heat to maintain a low simmer. Cook for about 30 minutes.
+To serve, ladle soup into a bowl and transfer one cheesy toast onto the top of each bowl of soup.
+
+[servings]
+4
+[categories]
+SOUP
+SALTY
