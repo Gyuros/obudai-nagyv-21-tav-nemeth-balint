@@ -1,15 +1,15 @@
 package cookbook.service.recipe;
 
 import cookbook.exception.ModelNotFoundException;
-import cookbook.service.BaseService;
+import cookbook.service.dto.RecipeDto;
 
 import java.util.List;
 
-public interface RecipeService extends BaseService<Recipe>, Observable {
+public interface RecipeService {
 
-    void addRecipe(Recipe recipe);
+    void addRecipe(RecipeDto recipe);
 
-    List<Recipe> getRecipes();
+    List<RecipeDto> getRecipes();
 
     void deleteRecipe(String name) throws ModelNotFoundException;
 }

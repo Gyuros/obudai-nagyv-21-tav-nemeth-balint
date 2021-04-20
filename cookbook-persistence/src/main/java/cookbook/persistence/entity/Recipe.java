@@ -29,6 +29,18 @@ public class Recipe extends EntityBase {
     @OneToMany(mappedBy = "recipe")
     private List<Comment> comments = new ArrayList<>();
 
+    public Recipe() {
+    }
+
+    public Recipe(String name, int servings, String preparation, Cook uploader, List<RecipeCategory> categories, List<Ingredient> ingredients) {
+        this.name = name;
+        this.servings = servings;
+        this.preparation = preparation;
+        this.uploader = uploader;
+        this.categories = categories;
+        this.ingredients = ingredients;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

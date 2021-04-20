@@ -1,6 +1,7 @@
 package cookbook.view.recipe;
 
-import cookbook.domain.*;
+import cookbook.domain.Category;
+import cookbook.domain.Unit;
 import cookbook.view.BaseView;
 import cookbook.view.GeneralView;
 import org.springframework.beans.factory.annotation.Autowired;

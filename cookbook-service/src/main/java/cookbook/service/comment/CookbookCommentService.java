@@ -8,8 +8,6 @@ import cookbook.service.dto.RecipeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.security.auth.login.CredentialNotFoundException;
-
 @Component
 public class CookbookCommentService implements CommentService {
 

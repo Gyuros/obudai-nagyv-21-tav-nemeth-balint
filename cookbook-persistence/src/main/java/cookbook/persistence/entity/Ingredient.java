@@ -19,6 +19,15 @@ public class Ingredient extends EntityBase {
     @ManyToOne
     private Recipe recipe;
 
+    public Ingredient() {
+    }
+
+    public Ingredient(double amount, String name, Unit unit) {
+        this.amount = amount;
+        this.name = name;
+        this.unit = unit;
+    }
+
     public double getAmount() {
         return amount;
     }

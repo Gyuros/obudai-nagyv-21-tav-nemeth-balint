@@ -16,6 +16,13 @@ public class RecipeCategory extends EntityBase {
     @Enumerated(value = EnumType.STRING)
     private Category category;
 
+    public RecipeCategory() {
+    }
+
+    public RecipeCategory(Category category) {
+        this.category = category;
+    }
+
     public Recipe getRecipe() {
         return recipe;
     }

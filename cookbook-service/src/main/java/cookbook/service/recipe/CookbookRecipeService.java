@@ -1,44 +1,45 @@
 package cookbook.service.recipe;
 
+import com.google.common.collect.Lists;
 import cookbook.exception.ModelNotFoundException;
+import cookbook.persistence.repository.CookRepository;
+import cookbook.persistence.repository.RecipeRepository;
+import cookbook.service.dto.RecipeDto;
+import cookbook.service.transformer.RecipeTransformer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
 
 @Component
-public class CookbookRecipeService extends CookbookBaseService<Recipe> implements RecipeService {
+public class CookbookRecipeService implements RecipeService {
 
-    public CookbookRecipeService() { super("recipes.txt"); }
+    @Autowired
+    private RecipeRepository recipeRepository;
+
+    @Autowired
+    private CookRepository cookRepository;
+
+    @Autowired
+    private RecipeTransformer transformer;
 
     @Override
-    public void addRecipe(Recipe recipe) {
-        long lastId = models.stream()
-                .map(Recipe::getId)
-                .max(Long::compare)
-                .orElse(1L);
-
-        recipe.setId(lastId + 1);
-        models.add(recipe);
+    public void addRecipe(RecipeDto recipe) {
+        recipeRepository.save(transformer.transform(recipe));
     }
 
     @Override
-    public List<Recipe> getRecipes() {
-        return Collections.unmodifiableList(models);
+    public List<RecipeDto> getRecipes() {
+        return transformer.transform(Lists.newArrayList(recipeRepository.findAll()));
     }
 
     @Override
     public void deleteRecipe(String id) throws ModelNotFoundException {
-        Recipe removable = models.stream()
-                .filter(r -> r.getId() == Long.parseLong(id))
-                .findFirst()
-                .orElse(null);
+        var removable = recipeRepository.findById(Long.parseLong(id));
 
-        if(removable == null)
+        if(!removable.isPresent())
             throw new ModelNotFoundException("Model not found.");
 
-        removable.getUploader().getOwnRecipes().remove(removable);
-
-        models.remove(removable);
+        recipeRepository.delete(removable.get());
     }
 }

@@ -2,7 +2,6 @@ package cookbook.service.cook;
 
 import cookbook.persistence.repository.CookRepository;
 import cookbook.service.dto.CookDto;
-import cookbook.service.transformer.Transformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -40,7 +39,7 @@ public class CookbookCookService extends CookbookObserverBaseService implements 
         var cook = cookRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 
         if(cook != null)
-            currentUser = transformer.transform(cook, CookDto.class);
+            currentUser = null; // cook;
 
         return cook != null;
     }
