@@ -26,7 +26,8 @@ public class CookbookRecipeService implements RecipeService {
 
     @Override
     public void addRecipe(RecipeDto recipe) {
-        recipeRepository.save(transformer.toRecipe(recipe));
+        var saved = recipeRepository.save(transformer.toRecipe(recipe));
+        recipe.setId(saved.getId());
     }
 
     @Override
