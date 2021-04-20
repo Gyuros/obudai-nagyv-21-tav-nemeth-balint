@@ -1,5 +1,5 @@
-INSERT INTO COOK VALUES (1, 'gipszjakab', 'password')
-INSERT INTO COOK VALUES (2, 'palkata', '123456')
+INSERT INTO COOK VALUES (1, 'password', 'gipszjakab')
+INSERT INTO COOK VALUES (2, '123456', 'palkata')
 
 INSERT INTO RECIPE VALUES (1, 'Pea soup', 'Heat the oil in a saucepan over a medium heat. Add the onion and garlic and fry for
     34 minutes, until softened.

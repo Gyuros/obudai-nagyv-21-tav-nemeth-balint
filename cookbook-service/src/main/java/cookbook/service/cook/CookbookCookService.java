@@ -39,13 +39,10 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
 
     @Override
     public boolean authenticate(User user) {
-        Cook cook = models.stream()
-                .filter(c -> c.equals(user))
-                .findFirst()
-                .orElse(null);
+        var cook = cookRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 
         if(cook != null)
-            currentUser = cook;
+            currentUser = null; // cook;
 
         return cook != null;
     }

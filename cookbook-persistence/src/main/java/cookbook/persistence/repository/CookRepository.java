@@ -5,4 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 
 public interface CookRepository extends CrudRepository<Cook, Long> {
+
+    Cook findByUsernameAndPassword(String username, String password);
 }
