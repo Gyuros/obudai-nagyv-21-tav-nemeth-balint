@@ -12,11 +12,11 @@ public class CookTransformer {
     @Autowired
     private CookRepository cookRepository;
 
-    public CookDto transform(Cook cook) {
+    public CookDto toCookDto(Cook cook) {
         return new CookDto(cook.getUsername(), cook.getPassword());
     }
 
-    public Cook transform(CookDto cook) {
+    public Cook toCook(CookDto cook) {
         return cookRepository.findById(cook.getId()).get();
     }
 }

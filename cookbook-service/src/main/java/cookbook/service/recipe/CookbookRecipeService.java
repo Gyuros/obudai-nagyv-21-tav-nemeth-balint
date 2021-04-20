@@ -25,12 +25,12 @@ public class CookbookRecipeService implements RecipeService {
 
     @Override
     public void addRecipe(RecipeDto recipe) {
-        recipeRepository.save(transformer.transform(recipe));
+        recipeRepository.save(transformer.toRecipe(recipe));
     }
 
     @Override
     public List<RecipeDto> getRecipes() {
-        return transformer.transform(Lists.newArrayList(recipeRepository.findAll()));
+        return transformer.toRecipeDtos(Lists.newArrayList(recipeRepository.findAll()));
     }
 
     @Override

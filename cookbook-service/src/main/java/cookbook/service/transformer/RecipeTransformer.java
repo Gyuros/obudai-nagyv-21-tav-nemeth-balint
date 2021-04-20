@@ -24,10 +24,10 @@ public class RecipeTransformer {
     @Autowired
     private CookTransformer cookTransformer;
 
-    public Recipe transform(RecipeDto recipeDto) {
-        var uploader = cookTransformer.transform(recipeDto.getUploader());
-        var categories = categoryTransformer.transform(recipeDto.getCategories());
-        var ingredients = ingredientTransformer.transform(recipeDto.getIngredients());
+    public Recipe toRecipe(RecipeDto recipeDto) {
+        var uploader = cookTransformer.toCook(recipeDto.getUploader());
+        var categories = categoryTransformer.toRecipeCategories(recipeDto.getCategories());
+        var ingredients = ingredientTransformer.toIngredients(recipeDto.getIngredients());
 
         return new Recipe(
                 recipeDto.getName(),
@@ -38,15 +38,15 @@ public class RecipeTransformer {
                 ingredients);
     }
 
-    public List<RecipeDto> transform(List<Recipe> recipes) {
+    public List<RecipeDto> toRecipeDtos(List<Recipe> recipes) {
         return recipes.stream().map(r -> new RecipeDto(
                 r.getId(),
                 r.getName(),
                 r.getServings(),
                 r.getPreparation(),
-                cookTransformer.transform(r.getUploader()),
-                categoryTransformer.transform(r.getCategories()),
-                ingredientTransformer.transform(r.getIngredients())))
+                cookTransformer.toCookDto(r.getUploader()),
+                categoryTransformer.toCategories(r.getCategories()),
+                ingredientTransformer.toIngredientDtos(r.getIngredients())))
         .collect(Collectors.toList());
     }
 }

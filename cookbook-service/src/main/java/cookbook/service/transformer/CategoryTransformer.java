@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
 @Component
 public class CategoryTransformer {
 
-    public List<RecipeCategory> transform(List<Category> categories) {
+    public List<RecipeCategory> toRecipeCategories(List<Category> categories) {
         return categories.stream().map(RecipeCategory::new).collect(Collectors.toList());
     }
 
-    public List<Category> transform(List<RecipeCategory> categories) {
+    public List<Category> toCategories(List<RecipeCategory> categories) {
         return categories.stream().map(c -> c.getCategory()).collect(Collectors.toList());
     }
 }

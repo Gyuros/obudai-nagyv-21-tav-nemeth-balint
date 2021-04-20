@@ -39,7 +39,7 @@ public class CookbookCookService implements CookService {
         var cook = cookRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 
         if(cook != null)
-            currentUser = transformer.transform(cook);
+            currentUser = transformer.toCookDto(cook);
 
         return cook != null;
     }
