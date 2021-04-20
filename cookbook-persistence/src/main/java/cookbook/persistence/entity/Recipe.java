@@ -1,7 +1,5 @@
 package cookbook.persistence.entity;
 
-import cookbook.domain.Category;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;

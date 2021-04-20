@@ -2,7 +2,6 @@ package cookbook.service.comment;
 
 import cookbook.domain.Comment;
 import cookbook.domain.Recipe;
-import cookbook.exception.ModelNotFoundException;
 import cookbook.service.CookbookBaseService;
 import cookbook.service.cook.CookbookCookService;
 import org.springframework.beans.factory.annotation.Autowired;
