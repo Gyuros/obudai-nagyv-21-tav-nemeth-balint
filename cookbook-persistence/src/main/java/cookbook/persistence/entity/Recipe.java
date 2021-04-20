@@ -1,9 +1,6 @@
 package cookbook.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,25 +17,23 @@ public class Recipe extends EntityBase {
     @ManyToOne
     private Cook uploader;
 
-    @OneToMany(mappedBy = "recipe")
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<RecipeCategory> categories;
 
-    @OneToMany(mappedBy = "recipe")
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Ingredient> ingredients;
 
-    @OneToMany(mappedBy = "recipe")
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
 
     public Recipe() {
     }
 
-    public Recipe(String name, int servings, String preparation, Cook uploader, List<RecipeCategory> categories, List<Ingredient> ingredients) {
+    public Recipe(String name, int servings, String preparation, Cook uploader) {
         this.name = name;
         this.servings = servings;
         this.preparation = preparation;
         this.uploader = uploader;
-        this.categories = categories;
-        this.ingredients = ingredients;
     }
 
     public void setId(long id) {
@@ -71,6 +66,14 @@ public class Recipe extends EntityBase {
 
     public List<Comment> getComments() {
         return comments;
+    }
+
+    public void setCategories(List<RecipeCategory> categories) {
+        this.categories = categories;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     @Override

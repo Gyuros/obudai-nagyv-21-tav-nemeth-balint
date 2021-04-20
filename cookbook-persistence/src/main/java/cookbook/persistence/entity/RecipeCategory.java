@@ -19,7 +19,8 @@ public class RecipeCategory extends EntityBase {
     public RecipeCategory() {
     }
 
-    public RecipeCategory(Category category) {
+    public RecipeCategory(Recipe recipe, Category category) {
+        this.recipe = recipe;
         this.category = category;
     }
 

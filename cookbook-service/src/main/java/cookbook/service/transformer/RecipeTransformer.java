@@ -25,16 +25,17 @@ public class RecipeTransformer {
 
     public Recipe toRecipe(RecipeDto recipeDto) {
         var uploader = cookTransformer.toCook(recipeDto.getUploader());
-        var categories = categoryTransformer.toRecipeCategories(recipeDto.getCategories());
-        var ingredients = ingredientTransformer.toIngredients(recipeDto.getIngredients());
 
-        return new Recipe(
+        var recipe = new Recipe(
                 recipeDto.getName(),
                 recipeDto.getServings(),
                 recipeDto.getPreparation(),
-                uploader,
-                categories,
-                ingredients);
+                uploader);
+
+        recipe.setCategories(categoryTransformer.toRecipeCategories(recipeDto.getCategories(), recipe));
+        recipe.setIngredients(ingredientTransformer.toIngredients(recipeDto.getIngredients(), recipe));
+
+        return recipe;
     }
 
     public List<RecipeDto> toRecipeDtos(List<Recipe> recipes) {

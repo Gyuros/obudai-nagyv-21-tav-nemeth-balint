@@ -22,10 +22,11 @@ public class Ingredient extends EntityBase {
     public Ingredient() {
     }
 
-    public Ingredient(double amount, String name, Unit unit) {
+    public Ingredient(double amount, String name, Unit unit, Recipe recipe) {
         this.amount = amount;
         this.name = name;
         this.unit = unit;
+        this.recipe = recipe;
     }
 
     public double getAmount() {

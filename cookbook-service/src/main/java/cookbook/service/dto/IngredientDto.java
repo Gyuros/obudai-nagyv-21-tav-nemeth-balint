@@ -25,4 +25,9 @@ public class IngredientDto {
     public Unit getUnit() {
         return unit;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %s", amount, unit, name);
+    }
 }

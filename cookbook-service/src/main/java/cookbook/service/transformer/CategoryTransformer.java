@@ -1,6 +1,7 @@
 package cookbook.service.transformer;
 
 import cookbook.domain.Category;
+import cookbook.persistence.entity.Recipe;
 import cookbook.persistence.entity.RecipeCategory;
 import org.springframework.stereotype.Component;
 
@@ -10,8 +11,8 @@ import java.util.stream.Collectors;
 @Component
 public class CategoryTransformer {
 
-    public List<RecipeCategory> toRecipeCategories(List<Category> categories) {
-        return categories.stream().map(RecipeCategory::new).collect(Collectors.toList());
+    public List<RecipeCategory> toRecipeCategories(List<Category> categories, Recipe recipe) {
+        return categories.stream().map(c -> new RecipeCategory(recipe, c)).collect(Collectors.toList());
     }
 
     public List<Category> toCategories(List<RecipeCategory> categories) {
