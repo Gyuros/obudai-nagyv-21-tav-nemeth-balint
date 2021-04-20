@@ -9,6 +9,7 @@ import cookbook.service.transformer.RecipeTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Component
@@ -29,6 +30,7 @@ public class CookbookRecipeService implements RecipeService {
     }
 
     @Override
+    @Transactional
     public List<RecipeDto> getRecipes() {
         return transformer.toRecipeDtos(Lists.newArrayList(recipeRepository.findAll()));
     }
@@ -41,5 +43,11 @@ public class CookbookRecipeService implements RecipeService {
             throw new ModelNotFoundException("Model not found.");
 
         recipeRepository.delete(removable.get());
+    }
+
+    @Override
+    @Transactional
+    public RecipeDto getRefreshed(RecipeDto recipe) {
+        return transformer.toRecipeDto(recipeRepository.findById(recipe.getId()).get());
     }
 }

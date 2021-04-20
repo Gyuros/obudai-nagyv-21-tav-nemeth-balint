@@ -38,15 +38,18 @@ public class RecipeTransformer {
     }
 
     public List<RecipeDto> toRecipeDtos(List<Recipe> recipes) {
-        return recipes.stream().map(r -> new RecipeDto(
-                r.getId(),
-                r.getName(),
-                r.getServings(),
-                r.getPreparation(),
-                cookTransformer.toCookDto(r.getUploader()),
-                categoryTransformer.toCategories(r.getCategories()),
-                ingredientTransformer.toIngredientDtos(r.getIngredients()),
-                commentTransformer.toCommentDtos(r.getComments())))
-        .collect(Collectors.toList());
+        return recipes.stream().map(this::toRecipeDto).collect(Collectors.toList());
+    }
+
+    public RecipeDto toRecipeDto(Recipe recipe) {
+        return new RecipeDto(
+                recipe.getId(),
+                recipe.getName(),
+                recipe.getServings(),
+                recipe.getPreparation(),
+                cookTransformer.toCookDto(recipe.getUploader()),
+                categoryTransformer.toCategories(recipe.getCategories()),
+                ingredientTransformer.toIngredientDtos(recipe.getIngredients()),
+                commentTransformer.toCommentDtos(recipe.getComments()));
     }
 }

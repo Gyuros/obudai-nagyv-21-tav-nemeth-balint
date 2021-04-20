@@ -11,6 +11,12 @@ public class CookDto {
         this.password = password;
     }
 
+    public CookDto(long id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
     public String getUsername() {
         return username;
     }

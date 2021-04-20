@@ -12,4 +12,6 @@ public interface RecipeService {
     List<RecipeDto> getRecipes();
 
     void deleteRecipe(String name) throws ModelNotFoundException;
+
+    RecipeDto getRefreshed(RecipeDto recipe);
 }

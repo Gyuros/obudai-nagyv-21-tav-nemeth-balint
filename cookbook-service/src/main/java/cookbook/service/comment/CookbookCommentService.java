@@ -1,5 +1,6 @@
 package cookbook.service.comment;
 
+import cookbook.persistence.entity.Comment;
 import cookbook.persistence.repository.CommentRepository;
 import cookbook.persistence.repository.CookRepository;
 import cookbook.persistence.repository.RecipeRepository;
@@ -27,6 +28,6 @@ public class CookbookCommentService implements CommentService {
     public void saveComment(RecipeDto recipe, String comment) {
         var r = recipeRepository.findById(recipe.getId()).get();
         var c = cookRepository.findById(cookService.getCurrentUser().getId()).get();
-        commentRepository.save(new cookbook.persistence.entity.Comment(comment, r, c));
+        commentRepository.save(new Comment(comment, r, c));
     }
 }

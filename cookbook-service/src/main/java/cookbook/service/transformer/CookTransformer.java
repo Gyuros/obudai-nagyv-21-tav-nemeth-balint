@@ -13,7 +13,7 @@ public class CookTransformer {
     private CookRepository cookRepository;
 
     public CookDto toCookDto(Cook cook) {
-        return new CookDto(cook.getUsername(), cook.getPassword());
+        return new CookDto(cook. getId(), cook.getUsername(), cook.getPassword());
     }
 
     public Cook toCook(CookDto cook) {
