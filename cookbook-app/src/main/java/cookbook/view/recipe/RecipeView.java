@@ -1,8 +1,5 @@
 package cookbook.view.recipe;
 
-import cookbook.domain.Cook;
-import cookbook.domain.Recipe;
-
 import java.util.List;
 
 public interface RecipeView {

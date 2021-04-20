@@ -1,6 +1,5 @@
 package cookbook.util;
 
-import cookbook.domain.Recipe;
 import cookbook.exception.ModelNotFoundException;
 import cookbook.service.cook.CookService;
 import org.springframework.beans.factory.annotation.Autowired;

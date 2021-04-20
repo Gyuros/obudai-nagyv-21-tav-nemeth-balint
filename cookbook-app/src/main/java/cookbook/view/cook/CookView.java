@@ -1,7 +1,5 @@
 package cookbook.view.cook;
 
-import cookbook.domain.User;
-
 public interface CookView {
     void printUserOptions();
 

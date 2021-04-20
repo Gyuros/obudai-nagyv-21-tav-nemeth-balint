@@ -1,7 +1,5 @@
 package cookbook.service.comment;
 
-import cookbook.domain.Comment;
-import cookbook.domain.Recipe;
 import cookbook.service.BaseService;
 import cookbook.service.Observable;
 

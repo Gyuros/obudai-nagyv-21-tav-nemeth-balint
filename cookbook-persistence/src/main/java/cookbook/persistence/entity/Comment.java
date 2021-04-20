@@ -16,6 +16,16 @@ public class Comment extends EntityBase {
     @ManyToOne
     private Recipe recipe;
 
+    public Comment() {
+    }
+
+    public Comment(String description, Recipe recipe, Cook owner) {
+        this.description = description;
+        this.recipe = recipe;
+        this.owner = owner;
+        this.timestamp = LocalDateTime.now();
+    }
+
     public String getDescription() {
         return description;
     }

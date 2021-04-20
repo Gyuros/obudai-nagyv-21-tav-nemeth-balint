@@ -1,7 +1,5 @@
 package cookbook.view.comment;
 
-import cookbook.domain.Comment;
-import cookbook.domain.Recipe;
 import cookbook.view.BaseView;
 import org.springframework.stereotype.Component;
 

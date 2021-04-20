@@ -1,6 +1,5 @@
 package cookbook.util;
 
-import cookbook.domain.Cook;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;

@@ -1,25 +1,26 @@
 package cookbook.service.cook;
 
-import cookbook.domain.Cook;
-import cookbook.domain.User;
 import cookbook.persistence.repository.CookRepository;
+import cookbook.service.CookbookBaseService;
 import cookbook.service.CookbookObserverBaseService;
+import cookbook.service.ObserverBaseService;
+import cookbook.service.dto.CookResult;
+import cookbook.service.transformer.Transformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 @Component
-public class CookbookCookService extends CookbookObserverBaseService<Cook> implements CookService {
+public class CookbookCookService extends CookbookObserverBaseService implements CookService {
 
     @Autowired
     private CookRepository cookRepository;
 
-    private Cook currentUser;
+    @Autowired
+    private Transformer transformer;
 
-    public CookbookCookService() {
-        super("cooks.txt");
-    }
+    private CookResult currentUser;
 
     @Override
     public void logout() throws IOException {
@@ -33,16 +34,16 @@ public class CookbookCookService extends CookbookObserverBaseService<Cook> imple
     }
 
     @Override
-    public Cook getCurrentUser() {
+    public CookResult getCurrentUser() {
         return currentUser;
     }
 
     @Override
-    public boolean authenticate(User user) {
+    public boolean authenticate(CookResult user) {
         var cook = cookRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 
         if(cook != null)
-            currentUser = null; // cook;
+            currentUser = transformer.transform(cook, CookResult.class);
 
         return cook != null;
     }

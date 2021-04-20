@@ -1,6 +1,5 @@
 package cookbook;
 
-import cookbook.domain.Recipe;
 import cookbook.service.comment.CommentService;
 import cookbook.service.cook.CookService;
 import cookbook.view.GeneralView;

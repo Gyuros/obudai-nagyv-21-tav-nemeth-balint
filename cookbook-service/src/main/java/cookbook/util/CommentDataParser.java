@@ -1,6 +1,5 @@
 package cookbook.util;
 
-import cookbook.domain.Comment;
 import cookbook.exception.ModelNotFoundException;
 import cookbook.service.cook.CookService;
 import cookbook.service.recipe.RecipeService;

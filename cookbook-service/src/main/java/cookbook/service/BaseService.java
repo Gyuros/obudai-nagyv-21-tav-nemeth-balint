@@ -1,6 +1,5 @@
 package cookbook.service;
 
-import cookbook.domain.Identifiable;
 import cookbook.exception.ModelNotFoundException;
 
 import java.io.IOException;

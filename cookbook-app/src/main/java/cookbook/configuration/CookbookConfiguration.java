@@ -1,6 +1,5 @@
 package cookbook.configuration;
 
-import cookbook.domain.Identifiable;
 import cookbook.service.BaseService;
 import cookbook.service.comment.CommentService;
 import cookbook.service.comment.CookbookCommentService;

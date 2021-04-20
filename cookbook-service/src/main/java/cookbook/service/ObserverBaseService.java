@@ -1,7 +1,5 @@
 package cookbook.service;
 
-import cookbook.domain.Identifiable;
-
-public interface ObserverBaseService<T extends Identifiable> extends BaseService<T> {
+public interface ObserverBaseService {
     void add(Observable observable);
 }

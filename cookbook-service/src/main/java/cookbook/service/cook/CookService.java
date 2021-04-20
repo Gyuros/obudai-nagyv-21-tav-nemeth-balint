@@ -1,18 +1,17 @@
 package cookbook.service.cook;
 
-import cookbook.domain.Cook;
-import cookbook.domain.User;
 import cookbook.service.ObserverBaseService;
+import cookbook.service.dto.CookResult;
 
 import java.io.IOException;
 
-public interface CookService extends ObserverBaseService<Cook> {
+public interface CookService extends ObserverBaseService {
 
     void logout() throws IOException;
 
     boolean isLoggedIn();
 
-    Cook getCurrentUser();
+    CookResult getCurrentUser();
 
-    boolean authenticate(User user);
+    boolean authenticate(CookResult user);
 }

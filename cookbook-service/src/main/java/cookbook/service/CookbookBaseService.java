@@ -1,6 +1,5 @@
 package cookbook.service;
 
-import cookbook.domain.Identifiable;
 import cookbook.exception.ModelNotFoundException;
 import cookbook.persistence.Data;
 import cookbook.util.DataParser;

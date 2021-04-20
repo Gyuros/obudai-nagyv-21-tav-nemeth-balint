@@ -1,6 +1,5 @@
 package cookbook;
 
-import cookbook.domain.User;
 import cookbook.service.cook.CookService;
 import cookbook.view.GeneralView;
 import cookbook.view.cook.CookView;

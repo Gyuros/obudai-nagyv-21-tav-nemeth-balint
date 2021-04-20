@@ -1,6 +1,5 @@
 package cookbook.service.recipe;
 
-import cookbook.domain.Recipe;
 import cookbook.exception.ModelNotFoundException;
 import cookbook.service.BaseService;
 import cookbook.service.Observable;

@@ -1,6 +1,5 @@
 package cookbook.util;
 
-import cookbook.domain.Ingredient;
 import cookbook.domain.Unit;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,5 @@
 package cookbook.view.cook;
 
-import cookbook.domain.Cook;
-import cookbook.domain.User;
 import cookbook.view.BaseView;
 import cookbook.view.GeneralView;
 import org.springframework.beans.factory.annotation.Autowired;

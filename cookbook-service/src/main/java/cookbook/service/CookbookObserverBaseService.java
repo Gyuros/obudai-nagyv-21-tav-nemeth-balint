@@ -1,17 +1,14 @@
 package cookbook.service;
 
-import cookbook.domain.Identifiable;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CookbookObserverBaseService<T extends Identifiable> extends CookbookBaseService<T> implements ObserverBaseService<T> {
+public class CookbookObserverBaseService implements ObserverBaseService {
 
     private final List<Observable> observables;
 
-    protected CookbookObserverBaseService(String initFile) {
-        super(initFile);
+    protected CookbookObserverBaseService() {
         observables = new ArrayList<>();
     }
 
