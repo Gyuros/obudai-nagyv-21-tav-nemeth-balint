@@ -8,6 +8,10 @@ import java.util.List;
 @Entity
 public class Cook extends User {
 
+    public Cook(String username, String password) {
+        super(username, password);
+    }
+
     @OneToMany(mappedBy = "uploader")
     private List<Recipe> ownRecipes = new ArrayList<>();
 

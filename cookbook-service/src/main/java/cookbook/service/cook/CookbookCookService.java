@@ -1,10 +1,7 @@
 package cookbook.service.cook;
 
 import cookbook.persistence.repository.CookRepository;
-import cookbook.service.CookbookBaseService;
-import cookbook.service.CookbookObserverBaseService;
-import cookbook.service.ObserverBaseService;
-import cookbook.service.dto.CookResult;
+import cookbook.service.dto.CookDto;
 import cookbook.service.transformer.Transformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,7 +17,7 @@ public class CookbookCookService extends CookbookObserverBaseService implements 
     @Autowired
     private Transformer transformer;
 
-    private CookResult currentUser;
+    private CookDto currentUser;
 
     @Override
     public void logout() throws IOException {
@@ -34,16 +31,16 @@ public class CookbookCookService extends CookbookObserverBaseService implements 
     }
 
     @Override
-    public CookResult getCurrentUser() {
+    public CookDto getCurrentUser() {
         return currentUser;
     }
 
     @Override
-    public boolean authenticate(CookResult user) {
+    public boolean authenticate(CookDto user) {
         var cook = cookRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 
         if(cook != null)
-            currentUser = transformer.transform(cook, CookResult.class);
+            currentUser = transformer.transform(cook, CookDto.class);
 
         return cook != null;
     }

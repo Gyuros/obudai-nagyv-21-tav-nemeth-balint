@@ -1,7 +1,6 @@
 package cookbook.service.recipe;
 
 import cookbook.exception.ModelNotFoundException;
-import cookbook.service.CookbookBaseService;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;

@@ -6,8 +6,13 @@ import java.util.Objects;
 @MappedSuperclass
 public abstract class User extends EntityBase {
 
-    private String username;
-    private String password;
+    protected String username;
+    protected String password;
+
+    protected User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;

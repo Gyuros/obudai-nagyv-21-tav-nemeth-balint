@@ -1,13 +1,8 @@
 package cookbook.service.comment;
 
-import cookbook.service.BaseService;
-import cookbook.service.Observable;
+import cookbook.service.dto.RecipeDto;
 
-import javax.security.auth.login.CredentialNotFoundException;
+public interface CommentService {
 
-public interface CommentService extends BaseService<Comment>, Observable {
-
-    void saveComment(Recipe recipe, String comment);
-
-    void deleteCommentsForRecipe(Recipe recipe) throws CredentialNotFoundException;
+    void saveComment(RecipeDto recipe, String comment);
 }

@@ -1,7 +1,6 @@
 package cookbook.service.cook;
 
-import cookbook.service.ObserverBaseService;
-import cookbook.service.dto.CookResult;
+import cookbook.service.dto.CookDto;
 
 import java.io.IOException;
 
@@ -11,7 +10,7 @@ public interface CookService extends ObserverBaseService {
 
     boolean isLoggedIn();
 
-    CookResult getCurrentUser();
+    CookDto getCurrentUser();
 
-    boolean authenticate(CookResult user);
+    boolean authenticate(CookDto user);
 }

@@ -2,7 +2,6 @@ package cookbook.service.recipe;
 
 import cookbook.exception.ModelNotFoundException;
 import cookbook.service.BaseService;
-import cookbook.service.Observable;
 
 import java.util.List;
 
