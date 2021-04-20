@@ -9,8 +9,10 @@ public class Comment extends EntityBase {
 
     private String description;
     private LocalDateTime timestamp;
+
     @ManyToOne
     private Cook owner;
+
     @ManyToOne
     private Recipe recipe;
 

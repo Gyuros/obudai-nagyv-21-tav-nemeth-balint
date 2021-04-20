@@ -3,6 +3,8 @@ package cookbook.persistence.entity;
 import cookbook.domain.Unit;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -10,7 +12,10 @@ public class Ingredient extends EntityBase {
 
     private double amount;
     private String name;
+
+    @Enumerated(value = EnumType.STRING)
     private Unit unit;
+
     @ManyToOne
     private Recipe recipe;
 

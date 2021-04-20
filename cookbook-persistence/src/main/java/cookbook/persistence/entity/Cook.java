@@ -10,6 +10,7 @@ public class Cook extends User {
 
     @OneToMany(mappedBy = "uploader")
     private List<Recipe> ownRecipes = new ArrayList<>();
+
     @OneToMany(mappedBy = "recipe")
     private List<Comment> comments = new ArrayList<>();
 

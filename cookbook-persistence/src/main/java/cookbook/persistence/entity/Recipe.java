@@ -1,5 +1,6 @@
 package cookbook.persistence.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -12,13 +13,19 @@ public class Recipe extends EntityBase {
 
     private String name;
     private int servings;
+
+    @Column(length = 2000)
     private String preparation;
+
     @ManyToOne
     private Cook uploader;
+
     @OneToMany(mappedBy = "recipe")
     private List<RecipeCategory> categories;
+
     @OneToMany(mappedBy = "recipe")
     private List<Ingredient> ingredients;
+
     @OneToMany(mappedBy = "recipe")
     private List<Comment> comments = new ArrayList<>();
 

@@ -3,6 +3,8 @@ package cookbook.persistence.entity;
 import cookbook.domain.Category;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -10,6 +12,8 @@ public class RecipeCategory extends EntityBase {
 
     @ManyToOne
     private Recipe recipe;
+
+    @Enumerated(value = EnumType.STRING)
     private Category category;
 
     public Recipe getRecipe() {

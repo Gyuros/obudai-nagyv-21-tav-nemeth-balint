@@ -1,9 +1,9 @@
 package cookbook.persistence.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import java.util.Objects;
 
-@Entity
+@MappedSuperclass
 public abstract class User extends EntityBase {
 
     private String username;
