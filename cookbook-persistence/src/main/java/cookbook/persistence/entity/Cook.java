@@ -8,6 +8,9 @@ import java.util.List;
 @Entity
 public class Cook extends User {
 
+    public Cook() {
+    }
+
     public Cook(String username, String password) {
         super(username, password);
     }

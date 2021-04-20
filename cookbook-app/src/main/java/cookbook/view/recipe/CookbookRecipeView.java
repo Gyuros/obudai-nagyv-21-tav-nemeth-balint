@@ -2,6 +2,9 @@ package cookbook.view.recipe;
 
 import cookbook.domain.Category;
 import cookbook.domain.Unit;
+import cookbook.service.dto.CookDto;
+import cookbook.service.dto.IngredientDto;
+import cookbook.service.dto.RecipeDto;
 import cookbook.view.BaseView;
 import cookbook.view.GeneralView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +22,19 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
     private GeneralView generalView;
 
     @Override
-    public Recipe readRecipe(Cook uploader) {
+    public RecipeDto readRecipe(CookDto uploader) {
         println();
         String name = getRecipeName();
         int servings = getRecipeServings();
-        List<Ingredient> ingredients = getRecipeIngredients();
+        List<IngredientDto> ingredients = getRecipeIngredients();
         String preparation = getRecipePreparation();
         List<Category> categories = getRecipeCategories();
 
-        return new Recipe(name, servings, preparation, uploader, categories, ingredients);
+        return new RecipeDto(name, servings, preparation, uploader, categories, ingredients);
     }
 
     @Override
-    public void printRecipeCreated(Recipe recipe) {
+    public void printRecipeCreated(RecipeDto recipe) {
         println();
         print("-- Recipe created with the following informations --",
                 "Name:\t\t" + recipe.getName(),
@@ -41,7 +44,7 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
     }
 
     @Override
-    public void printRecipe(Recipe recipe) {
+    public void printRecipe(RecipeDto recipe) {
         println();
         print("\t\t\t-- " + recipe.getName() + " --",
                 "Recipe ID: \t" + recipe.getId(),
@@ -75,7 +78,7 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
     }
 
     @Override
-    public void printRecipes(List<Recipe> recipes) {
+    public void printRecipes(List<RecipeDto> recipes) {
         println();
         AtomicInteger i = new AtomicInteger();
         print(recipes.stream().map(r -> i.getAndIncrement() + ": " + r.getName()).toArray());
@@ -150,9 +153,9 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
         return sb.toString();
     }
 
-    private List<Ingredient> getRecipeIngredients() {
+    private List<IngredientDto> getRecipeIngredients() {
         boolean addAnother = true;
-        List<Ingredient> ingredients = new ArrayList<>();
+        List<IngredientDto> ingredients = new ArrayList<>();
 
         while (addAnother) {
 
@@ -161,7 +164,7 @@ public class CookbookRecipeView extends BaseView implements RecipeView {
             Unit unit = Unit.valueOf(generalView.getInput().toUpperCase());
             String name = generalView.getInput();
 
-            ingredients.add(new Ingredient(amount, name, unit));
+            ingredients.add(new IngredientDto(amount, name, unit));
 
             print("Add another? (Y/N)");
             addAnother = generalView.getInput().equalsIgnoreCase("y");

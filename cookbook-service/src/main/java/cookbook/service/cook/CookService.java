@@ -4,7 +4,7 @@ import cookbook.service.dto.CookDto;
 
 import java.io.IOException;
 
-public interface CookService extends ObserverBaseService {
+public interface CookService {
 
     void logout() throws IOException;
 

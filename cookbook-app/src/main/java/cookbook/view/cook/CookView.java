@@ -1,5 +1,7 @@
 package cookbook.view.cook;
 
+import cookbook.service.dto.CookDto;
+
 public interface CookView {
     void printUserOptions();
 
@@ -7,11 +9,11 @@ public interface CookView {
 
     void printNotAuthenticated();
 
-    void printLogout(User user);
+    void printLogout(CookDto user);
 
-    User readUser();
+    CookDto readUser();
 
     void printIncorrectCredentials();
 
-    void printUserLoggedIn(User user);
+    void printUserLoggedIn(CookDto user);
 }

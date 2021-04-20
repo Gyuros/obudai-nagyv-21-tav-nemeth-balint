@@ -1,5 +1,7 @@
 package cookbook.view.comment;
 
+import cookbook.service.dto.CommentDto;
+import cookbook.service.dto.RecipeDto;
 import cookbook.view.BaseView;
 import org.springframework.stereotype.Component;
 
@@ -7,10 +9,10 @@ import org.springframework.stereotype.Component;
 public class CookbookCommentView extends BaseView implements CommentView {
 
     @Override
-    public void printRecipeComments(Recipe recipe) {
+    public void printRecipeComments(RecipeDto recipe) {
         println();
         int i = 1;
-        for (Comment comment : recipe.getComments()) {
+        for (CommentDto comment : recipe.getComments()) {
             print(
                     i++ + ".\t" + comment.getTimestamp(),
                     comment.getDescription());

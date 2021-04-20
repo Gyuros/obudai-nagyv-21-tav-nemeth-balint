@@ -1,5 +1,6 @@
 package cookbook.view.cook;
 
+import cookbook.service.dto.CookDto;
 import cookbook.view.BaseView;
 import cookbook.view.GeneralView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,18 +37,18 @@ public class CookbookCookView extends BaseView implements CookView {
     }
 
     @Override
-    public void printLogout(User user) {
+    public void printLogout(CookDto user) {
         print("-- " + user.getUsername() + " user logged out --");
     }
 
     @Override
-    public User readUser() {
+    public CookDto readUser() {
         println();
         print("Give me your username:");
         String username = generalView.getInput();
         print("Give me your password:");
         String password = generalView.getInput();
-        return new Cook(username, password);
+        return new CookDto(username, password);
     }
 
     @Override
@@ -56,7 +57,7 @@ public class CookbookCookView extends BaseView implements CookView {
     }
 
     @Override
-    public void printUserLoggedIn(User user) {
+    public void printUserLoggedIn(CookDto user) {
         print("-- " + user.getUsername() + " logged in --");
     }
 }

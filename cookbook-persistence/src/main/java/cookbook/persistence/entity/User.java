@@ -9,6 +9,9 @@ public abstract class User extends EntityBase {
     protected String username;
     protected String password;
 
+    public User() {
+    }
+
     protected User(String username, String password) {
         this.username = username;
         this.password = password;

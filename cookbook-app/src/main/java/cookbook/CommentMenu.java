@@ -2,6 +2,7 @@ package cookbook;
 
 import cookbook.service.comment.CommentService;
 import cookbook.service.cook.CookService;
+import cookbook.service.dto.RecipeDto;
 import cookbook.view.GeneralView;
 import cookbook.view.comment.CommentView;
 import cookbook.view.cook.CookView;
@@ -26,14 +27,14 @@ public class CommentMenu {
     @Autowired
     private GeneralView generalView;
 
-    public void processRecipeMenuInput(Recipe recipe, String input) {
+    public void processRecipeMenuInput(RecipeDto recipe, String input) {
         switch (input){
             case "1": commentView.printRecipeComments(recipe); break;
             case "2": newComment(recipe); break;
         }
     }
 
-    private void newComment(Recipe recipe) {
+    private void newComment(RecipeDto recipe) {
         if(cookService.isLoggedIn()) {
             commentView.printNewCommentForm();
             commentService.saveComment(recipe, generalView.getInput());

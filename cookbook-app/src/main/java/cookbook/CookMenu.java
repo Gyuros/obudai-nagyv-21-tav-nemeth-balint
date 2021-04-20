@@ -1,6 +1,7 @@
 package cookbook;
 
 import cookbook.service.cook.CookService;
+import cookbook.service.dto.CookDto;
 import cookbook.view.GeneralView;
 import cookbook.view.cook.CookView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class CookMenu {
     }
 
     private void login() {
-        User user = cookView.readUser();
+        CookDto user = cookView.readUser();
         if(cookService.authenticate(user)){
             cookView.printUserLoggedIn(cookService.getCurrentUser());
         }else{

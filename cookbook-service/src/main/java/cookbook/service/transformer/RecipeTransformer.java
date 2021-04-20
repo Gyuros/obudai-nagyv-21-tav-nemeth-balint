@@ -1,7 +1,6 @@
 package cookbook.service.transformer;
 
 import cookbook.persistence.entity.Recipe;
-import cookbook.persistence.repository.CookRepository;
 import cookbook.service.dto.RecipeDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,9 +12,6 @@ import java.util.stream.Collectors;
 public class RecipeTransformer {
 
     @Autowired
-    private CookRepository cookRepository;
-
-    @Autowired
     private IngredientTransformer ingredientTransformer;
 
     @Autowired
@@ -23,6 +19,9 @@ public class RecipeTransformer {
 
     @Autowired
     private CookTransformer cookTransformer;
+
+    @Autowired
+    private CommentTransformer commentTransformer;
 
     public Recipe toRecipe(RecipeDto recipeDto) {
         var uploader = cookTransformer.toCook(recipeDto.getUploader());
@@ -46,7 +45,8 @@ public class RecipeTransformer {
                 r.getPreparation(),
                 cookTransformer.toCookDto(r.getUploader()),
                 categoryTransformer.toCategories(r.getCategories()),
-                ingredientTransformer.toIngredientDtos(r.getIngredients())))
+                ingredientTransformer.toIngredientDtos(r.getIngredients()),
+                commentTransformer.toCommentDtos(r.getComments())))
         .collect(Collectors.toList());
     }
 }
